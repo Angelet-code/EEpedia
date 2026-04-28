@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guía completa de Empire Earth: recursos, economía, construcción de base, unidades, contadores, estrategia Rush vs Boom y técnicas avanzadas.">
+  <title>Guía de Estrategia — Empire Earth</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-brand"><img src="../assets/img/empire-earth-icon.png" class="nav-logo-img" alt="">EEpedia</a>
+    <a href="index.html">Guías</a>
+    <a href="../units/index.html">Unidades</a>
+    <a href="../powers/index.html">Poderes</a>
+    <a href="../glitches/index.html">Glitches</a>
+    <a href="../calculator.html">Calculadora</a>
+  </nav>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><defs>
+    <g id="icon-mg"><rect x="2" y="8" width="4" height="12" rx="1" fill="#d4a84b"/><rect x="18" y="8" width="4" height="12" rx="1" fill="#d4a84b"/><rect x="6" y="4" width="12" height="18" rx="2" fill="#e8eaed"/><rect x="8" y="6" width="3" height="14" rx="1" fill="#5f6570"/><rect x="13" y="6" width="3" height="14" rx="1" fill="#5f6570"/><circle cx="16" cy="10" r="3" fill="none" stroke="#ea4335" stroke-width="1.5"/></g>
+    <g id="icon-bazooka"><rect x="2" y="9" width="20" height="6" rx="3" fill="#d4a84b"/><rect x="16" y="5" width="6" height="14" rx="2" fill="#e8eaed"/><circle cx="11" cy="12" r="2" fill="#ea4335"/></g>
+    <g id="icon-marine"><circle cx="12" cy="8" r="5" fill="#d4a84b"/><rect x="7" y="13" width="10" height="11" rx="2" fill="#e8eaed"/><rect x="5" y="13" width="14" height="3" rx="1" fill="#5f6570"/></g>
+    <g id="icon-sniper"><line x1="5" y1="19" x2="22" y2="7" stroke="#d4a84b" stroke-width="3" stroke-linecap="round"/><line x1="3" y1="17" x2="24" y2="5" stroke="#e8eaed" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="8" r="4" fill="none" stroke="#ea4335" stroke-width="1.5"/><circle cx="20" cy="8" r="1" fill="#ea4335"/></g>
+    <g id="icon-mortar"><path d="M12 6 L18 18 L6 18 Z" fill="#d4a84b"/><rect x="10" y="10" width="4" height="8" rx="1" fill="#e8eaed"/><circle cx="12" cy="9" r="2" fill="#ea4335"/></g>
+    <g id="icon-stinger"><rect x="9" y="3" width="6" height="12" rx="2" fill="#d4a84b"/><rect x="5" y="15" width="14" height="4" rx="1" fill="#e8eaed"/><polygon points="12,2 10,0 14,0" fill="#ea4335"/></g>
+    <g id="icon-partisan"><path d="M6 10 L12 2 L18 10" fill="none" stroke="#d4a84b" stroke-width="2" stroke-linecap="round"/><path d="M6 10 L12 18 L18 10" fill="none" stroke="#e8eaed" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="2" x2="12" y2="22" stroke="#5f6570" stroke-width="1" stroke-dasharray="2,2"/></g>
+    <g id="icon-flame"><rect x="12" y="12" width="8" height="10" rx="2" fill="#5f6570"/><path d="M4 12 Q8 6 12 12 Q10 8 8 14 Q6 10 4 12" fill="#ea4335"/><path d="M4 14 Q6 10 8 14 Q6 16 4 14" fill="#f1c40f"/></g>
+    <g id="icon-medic"><circle cx="12" cy="12" r="10" fill="none" stroke="#e8eaed" stroke-width="2"/><line x1="12" y1="6" x2="12" y2="18" stroke="#ea4335" stroke-width="2.5" stroke-linecap="round"/><line x1="6" y1="12" x2="18" y2="12" stroke="#ea4335" stroke-width="2.5" stroke-linecap="round"/></g>
+    <g id="icon-citizen"><circle cx="12" cy="7" r="5" fill="#d4a84b"/><rect x="8" y="12" width="8" height="5" rx="2" fill="#e8eaed"/><rect x="10" y="17" width="4" height="5" rx="1" fill="#5f6570"/><rect x="7" y="22" width="2" height="2" rx="1" fill="#5f6570"/><rect x="15" y="22" width="2" height="2" rx="1" fill="#5f6570"/></g>
+    <g id="icon-halftrack"><rect x="6" y="7" width="14" height="8" rx="2" fill="#d4a84b"/><rect x="3" y="15" width="20" height="4" rx="2" fill="#5f6570"/><circle cx="8" cy="17" r="2" fill="#e8eaed"/><circle cx="16" cy="17" r="2" fill="#e8eaed"/><rect x="18" y="9" width="4" height="4" rx="1" fill="#ea4335"/></g>
+    <g id="icon-heli"><ellipse cx="12" cy="10" rx="10" ry="1.5" fill="#d4a84b"/><rect x="9" y="10" width="6" height="8" rx="2" fill="#e8eaed"/><path d="M12 18 L8 22 M12 18 L16 22" stroke="#5f6570" stroke-width="1.5" stroke-linecap="round"/></g>
+    <g id="icon-atgun"><line x1="4" y1="20" x2="22" y2="10" stroke="#d4a84b" stroke-width="3" stroke-linecap="round"/><circle cx="6" cy="18" r="3" fill="#5f6570"/><line x1="14" y1="7" x2="24" y2="3" stroke="#e8eaed" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="7" r="1.5" fill="#ea4335"/></g>
+    <g id="icon-shield"><path d="M12 2 L22 6 L22 14 Q22 20 12 24 Q2 20 2 14 L2 6 Z" fill="none" stroke="#d4a84b" stroke-width="1.5"/><path d="M12 6 L12 18 M6 12 L18 12" stroke="#e8eaed" stroke-width="1.5" stroke-linecap="round"/></g>
+    <g id="icon-food">
+      <rect x="10" y="0" width="2" height="4" fill="#5d4037"/>
+      <rect x="8" y="2" width="4" height="2" fill="#388e3c"/>
+      <rect x="6" y="4" width="4" height="4" fill="#d32f2f"/>
+      <rect x="10" y="2" width="4" height="2" fill="#388e3c"/>
+      <rect x="4" y="6" width="6" height="4" fill="#d32f2f"/>
+      <rect x="10" y="4" width="8" height="8" fill="#d32f2f"/>
+      <rect x="18" y="6" width="2" height="6" fill="#d32f2f"/>
+      <rect x="6" y="10" width="4" height="4" fill="#d32f2f"/>
+      <rect x="16" y="10" width="2" height="6" fill="#d32f2f"/>
+      <rect x="8" y="14" width="8" height="4" fill="#d32f2f"/>
+      <rect x="10" y="16" width="4" height="4" fill="#c62828"/>
+      <rect x="6" y="6" width="4" height="4" fill="#ef9a9a"/>
+    </g>
+    <g id="icon-hunt">
+      <rect x="2" y="10" width="6" height="4" fill="#8d6e63"/>
+      <rect x="8" y="8" width="6" height="4" fill="#8d6e63"/>
+      <rect x="14" y="6" width="6" height="6" fill="#8d6e63"/>
+      <rect x="18" y="4" width="4" height="2" fill="#8d6e63"/>
+      <rect x="18" y="4" width="2" height="2" fill="#5d4037"/>
+      <rect x="20" y="6" width="2" height="4" fill="#8d6e63"/>
+      <rect x="14" y="12" width="2" height="6" fill="#8d6e63"/>
+      <rect x="10" y="12" width="2" height="6" fill="#8d6e63"/>
+      <rect x="6" y="12" width="2" height="6" fill="#8d6e63"/>
+      <rect x="16" y="14" width="4" height="2" fill="#8d6e63"/>
+      <circle cx="20" cy="7" r="1" fill="#fff"/>
+    </g>
+    <g id="icon-fish">
+      <rect x="2" y="8" width="2" height="6" fill="#90a4ae"/>
+      <rect x="4" y="6" width="14" height="10" fill="#607d8b"/>
+      <rect x="18" y="6" width="4" height="2" fill="#607d8b"/>
+      <rect x="18" y="14" width="4" height="2" fill="#607d8b"/>
+      <rect x="20" y="8" width="2" height="6" fill="#607d8b"/>
+      <rect x="6" y="8" width="6" height="6" fill="#90a4ae"/>
+      <circle cx="8" cy="9" r="1" fill="#263238"/>
+    </g>
+    <g id="icon-sickle">
+      <rect x="4" y="16" width="4" height="6" fill="#8d6e63"/>
+      <rect x="6" y="14" width="2" height="2" fill="#8d6e63"/>
+      <rect x="6" y="12" width="6" height="2" fill="#78909c"/>
+      <rect x="8" y="10" width="8" height="2" fill="#78909c"/>
+      <rect x="12" y="8" width="8" height="2" fill="#78909c"/>
+      <rect x="16" y="6" width="6" height="2" fill="#78909c"/>
+      <rect x="18" y="4" width="4" height="2" fill="#78909c"/>
+      <rect x="18" y="6" width="2" height="2" fill="#90a4ae"/>
+    </g>
+    <g id="icon-pickaxe">
+      <rect x="4" y="12" width="4" height="10" fill="#8d6e63"/>
+      <rect x="6" y="10" width="2" height="2" fill="#8d6e63"/>
+      <rect x="8" y="8" width="6" height="4" fill="#90a4ae"/>
+      <rect x="12" y="4" width="6" height="6" fill="#90a4ae"/>
+      <rect x="14" y="2" width="4" height="2" fill="#90a4ae"/>
+      <rect x="10" y="6" width="2" height="2" fill="#78909c"/>
+      <rect x="8" y="10" width="2" height="2" fill="#78909c"/>
+      <rect x="14" y="4" width="2" height="2" fill="#78909c"/>
+    </g>
+    <g id="icon-wood">
+      <rect x="2" y="0" width="20" height="4" fill="#6d4c41"/>
+      <rect x="2" y="20" width="20" height="4" fill="#6d4c41"/>
+      <rect x="4" y="4" width="16" height="16" fill="#8d6e63"/>
+      <rect x="8" y="4" width="2" height="16" fill="#5d4037"/>
+      <rect x="14" y="4" width="2" height="16" fill="#5d4037"/>
+      <rect x="4" y="10" width="16" height="2" fill="#6d4c41"/>
+      <rect x="0" y="4" width="4" height="16" fill="#5d4037"/>
+      <rect x="20" y="4" width="4" height="16" fill="#5d4037"/>
+    </g>
+    <g id="icon-stone">
+      <rect x="2" y="2" width="20" height="20" fill="#757575"/>
+      <rect x="4" y="4" width="4" height="4" fill="#9e9e9e"/>
+      <rect x="12" y="2" width="4" height="4" fill="#9e9e9e"/>
+      <rect x="6" y="12" width="6" height="4" fill="#9e9e9e"/>
+      <rect x="14" y="14" width="6" height="4" fill="#9e9e9e"/>
+      <rect x="2" y="8" width="4" height="2" fill="#616161"/>
+      <rect x="18" y="8" width="4" height="2" fill="#616161"/>
+      <rect x="8" y="18" width="8" height="4" fill="#616161"/>
+    </g>
+    <g id="icon-gold">
+      <rect x="4" y="0" width="16" height="4" fill="#f9a825"/>
+      <rect x="2" y="4" width="20" height="16" fill="#fbc02d"/>
+      <rect x="4" y="6" width="16" height="12" fill="#fdd835"/>
+      <rect x="6" y="8" width="12" height="8" fill="#f57f17"/>
+      <rect x="10" y="2" width="4" height="2" fill="#fff59d"/>
+      <rect x="0" y="6" width="2" height="2" fill="#f9a825"/>
+      <rect x="22" y="6" width="2" height="2" fill="#f9a825"/>
+      <rect x="0" y="16" width="2" height="2" fill="#f9a825"/>
+      <rect x="22" y="16" width="2" height="2" fill="#f9a825"/>
+    </g>
+    <g id="icon-iron">
+      <rect x="4" y="2" width="16" height="4" fill="#78909c"/>
+      <rect x="2" y="6" width="20" height="14" fill="#546e7a"/>
+      <rect x="4" y="8" width="16" height="10" fill="#607d8b"/>
+      <rect x="6" y="10" width="12" height="6" fill="#90a4ae"/>
+      <rect x="8" y="4" width="2" height="2" fill="#b0bec5"/>
+      <rect x="14" y="4" width="2" height="2" fill="#b0bec5"/>
+      <rect x="0" y="10" width="2" height="2" fill="#78909c"/>
+      <rect x="22" y="10" width="2" height="2" fill="#78909c"/>
+      <rect x="0" y="14" width="2" height="2" fill="#78909c"/>
+      <rect x="22" y="14" width="2" height="2" fill="#78909c"/>
+    </g>
+    <g id="icon-star"><polygon points="12,2 15,9 22,9 16,13 18,21 12,16 6,21 8,13 2,9 9,9" fill="#d4a84b"/></g>
+    <g id="icon-clock"><circle cx="12" cy="12" r="10" fill="none" stroke="#d4a84b" stroke-width="1.5"/><line x1="12" y1="12" x2="12" y2="6" stroke="#e8eaed" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="12" x2="16" y2="12" stroke="#e8eaed" stroke-width="1.5" stroke-linecap="round"/></g>
+    <g id="icon-crosshair"><circle cx="12" cy="12" r="9" fill="none" stroke="#d4a84b" stroke-width="1.5"/><line x1="12" y1="3" x2="12" y2="21" stroke="#e8eaed" stroke-width="1" stroke-dasharray="2,2"/><line x1="3" y1="12" x2="21" y2="12" stroke="#e8eaed" stroke-width="1" stroke-dasharray="2,2"/><circle cx="12" cy="12" r="2" fill="#ea4335"/></g>
+    <g id="icon-eye"><path d="M2 12 Q6 5 12 5 Q18 5 22 12 Q18 19 12 19 Q6 19 2 12 Z" fill="none" stroke="#d4a84b" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#e8eaed"/></g>
+    <g id="icon-building"><rect x="3" y="8" width="18" height="16" rx="2" fill="#d4a84b"/><rect x="7" y="12" width="4" height="4" fill="#e8eaed"/><rect x="13" y="12" width="4" height="4" fill="#e8eaed"/><rect x="9" y="19" width="6" height="5" fill="#5f6570"/></g>
+    <g id="icon-wall"><rect x="2" y="6" width="20" height="3" fill="#7a7a7a"/><rect x="2" y="15" width="20" height="3" fill="#7a7a7a"/><rect x="6" y="9" width="3" height="6" fill="#d4a84b"/><rect x="15" y="9" width="3" height="6" fill="#d4a84b"/></g>
+  </defs></svg>
+
+  <div class="container">
+    <div class="hero">
+      <img src="../assets/img/empire-earth-icon.png" alt="EE" class="hero-logo">
+      <h1>Guía de Estrategia General</h1>
+      <p class="subtitle">De cero a experto — Recursos, economía, base, unidades, contadores y tácticas avanzadas de Empire Earth</p>
+    </div>
+
+    <!-- ===== ROADMAP SIMPLE ===== -->
+    <div class="roadmap-simple">
+      <a href="#recursos" class="roadmap-step"><svg viewBox="0 0 24 24" width="16" height="16" style="vertical-align:middle;margin-right:4px"><use href="#icon-gold"/></svg> Recursos</a>
+      <a href="#domina-la-partida" class="roadmap-step"><svg viewBox="0 0 24 24" width="16" height="16" style="vertical-align:middle;margin-right:4px"><use href="#icon-building"/></svg> Partida</a>
+      <a href="#diseno-base" class="roadmap-step"><svg viewBox="0 0 24 24" width="16" height="16" style="vertical-align:middle;margin-right:4px"><use href="#icon-shield"/></svg> Base</a>
+      <a href="#combate" class="roadmap-step"><svg viewBox="0 0 24 24" width="16" height="16" style="vertical-align:middle;margin-right:4px"><use href="#icon-mg"/></svg> Combate</a>
+      <a href="#tacticas" class="roadmap-step"><svg viewBox="0 0 24 24" width="16" height="16" style="vertical-align:middle;margin-right:4px"><use href="#icon-star"/></svg> Tácticas</a>
+    </div>
+  </div>
+
+  <div class="sections-wrapper">
+    <div class="section-block">
+      <div class="container">
+
+    <!-- ================================================================ -->
+    <!-- RECURSOS -->
+    <!-- ================================================================ -->
+    <div class="section-header" id="recursos"><h2>Recursos</h2><p>La base de tu economía — qué recursos existen, cuánto necesitas y cómo obtenerlos</p></div>
+    <p>Empire Earth es un RTS que abarca desde la Prehistoria hasta la era Espacial. No hay una receta única de victoria: <strong>cada estilo de juego funciona si se ejecuta bien</strong>. Pero todos comparten un mismo pilar: una economía sólida.</p>
+
+    <h3>Los 5 recursos</h3>
+    <div class="resource-grid">
+      <div class="resource-card res-food"><img src="../assets/img/food-icon.png" class="res-icon-card" alt="comida"><h4>Comida</h4><p>Ciudadanos y unidades blandas. Huertos, caza, pesca, granjas.</p></div>
+      <div class="resource-card res-wood"><img src="../assets/img/wood-icon.png" class="res-icon-card" alt="madera"><h4>Madera</h4><p>Edificios, barcos, asedio. Bosques de regeneración lenta.</p></div>
+      <div class="resource-card res-stone"><img src="../assets/img/stone-icon.png" class="res-icon-card" alt="piedra"><h4>Piedra</h4><p>Torres, muros, maravillas. El recurso defensivo.</p></div>
+      <div class="resource-card res-gold"><img src="../assets/img/gold-icon.png" class="res-icon-card" alt="oro"><h4>Oro</h4><p>Unidades avanzadas, mejoras y sacerdotes.</p></div>
+      <div class="resource-card res-iron"><img src="../assets/img/iron-icon.png" class="res-icon-card" alt="hierro"><h4>Hierro</h4><p>Tanques, cibernética, armamento moderno.</p></div>
+    </div>
+
+    <h3>¿Cuánto necesito de cada recurso?</h3>
+    <table class="epoch-table">
+      <tr><th>Época</th><th>Prioridad</th><th>Explicación</th></tr>
+      <tr><td>Prehistoria – Piedra</td><td><img src="../assets/img/food-icon.png" class="res-img" alt="comida"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> <img src="../assets/img/wood-icon.png" class="res-img" alt="madera"></td><td>Comida para ciudadanos, madera para los primeros edificios. No hay oro ni hierro aún.</td></tr>
+      <tr><td>Cobre – Hierro</td><td><img src="../assets/img/food-icon.png" class="res-img" alt="comida"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> <img src="../assets/img/gold-icon.png" class="res-img" alt="oro"> <img src="../assets/img/stone-icon.png" class="res-img" alt="piedra"></td><td>La comida sigue siendo prioridad. Aparece el oro para unidades y el hierro empieza a importar.</td></tr>
+      <tr><td>Medieval – Renacimiento</td><td><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> <img src="../assets/img/gold-icon.png" class="res-img" alt="oro"> <img src="../assets/img/iron-icon.png" class="res-img" alt="hierro"></td><td>Oro y hierro compiten con la comida. La madera pierde peso salvo para barcos.</td></tr>
+      <tr><td>Imperial – WW2</td><td><img src="../assets/img/iron-icon.png" class="res-img" alt="hierro"><img src="../assets/img/iron-icon.png" class="res-img" alt="hierro"> <img src="../assets/img/gold-icon.png" class="res-img" alt="oro"> <img src="../assets/img/food-icon.png" class="res-img" alt="comida"></td><td>El hierro es el rey: tanques, aviones, artillería. Oro para mejoras y sacerdotes.</td></tr>
+      <tr><td>Moderna – Nano</td><td><img src="../assets/img/iron-icon.png" class="res-img" alt="hierro"><img src="../assets/img/iron-icon.png" class="res-img" alt="hierro"> <img src="../assets/img/gold-icon.png" class="res-img" alt="oro"><img src="../assets/img/gold-icon.png" class="res-img" alt="oro"></td><td>Hierro y oro dominan. Cybers, tanques avanzados y armas de energía lo consumen todo.</td></tr>
+    </table>
+
+    <h3>Cómo obtener recursos — los 4 métodos</h3>
+    <div class="unit-grid">
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-hunt"/></svg></div><div class="unit-body"><h4>Caza</h4><p>Manadas que se reproducen. Caza los pequeños para que crezcan los grandes.</p></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-fish"/></svg></div><div class="unit-body"><h4>Pesca</h4><p>50 madera por barco. Ideal en mapas costeros. Protege con barcos de guerra.</p></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-sickle"/></svg></div><div class="unit-body"><h4>Agricultura</h4><p>Graneros con 8 campos. Poblar con 8 ciudadanos duplica la producción.</p></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-pickaxe"/></svg></div><div class="unit-body"><h4>Minería</h4><p>6 mineros por pila. Asentamiento lleno = máxima eficiencia.</p></div></div>
+    </div>
+
+      </div>
+    </div>
+    <div class="section-block">
+      <div class="container">
+
+    <!-- ================================================================ -->
+    <!-- DOMINA LA PARTIDA -->
+    <!-- ================================================================ -->
+    <div class="section-header" id="domina-la-partida"><h2>Domina la partida</h2><p>Cómo preparar y ejecutar tu plan de juego desde el primer segundo</p></div>
+
+    <h3>Ajustes de partida</h3>
+    <div class="unit-grid">
+      <div class="unit-card"><div class="unit-body"><h4>Variante de Juego</h4><p><strong>Tournament:</strong> requiere menos recursos para avanzar de época (170 comida de Pre a Piedra). <strong>Standard:</strong> necesita muchas más reservas (1122 comida). Tournament acelera el ritmo; Standard permite partidas más largas.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Tamaño del Mapa</h4><p><strong>Pequeño:</strong> más rushes. <strong>Mediano/Grande:</strong> balance entre exploración y combate. <strong>Gigante:</strong> mejor hacer boom y construir una segunda base cerca del enemigo para acortar distancias.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Reveal Map</h4><p><strong>Activado:</strong> ves todo desde el principio. Pon 3/5 de ciudadanos en comida y 2/5 en madera, luego elige tu civ. <strong>Desactivado:</strong> pon ciudadanos a explorar mientras eliges civilización.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Velocidad de Juego</h4><p><strong>Normal</strong> como mínimo. <strong>Muy Rápido</strong> es 2.5× la velocidad normal. Juega siempre en Muy Rápido para acostumbrarte: las partidas multijugador serias usan esta velocidad.</p></div></div>
+    </div>
+
+    <h3>Orden de construcción</h3>
+    <p style="font-size:0.85rem;color:var(--fg-muted)">Recomendado: Tournament / Low / Tierra. Pulsa <strong>F11</strong> para ver el cronómetro.</p>
+    <div class="phase-timeline">
+      <div class="phase-step"><div class="phase-num" style="background:rgba(107,140,66,0.2);color:#6b8c42">0:00</div><h4>Apertura</h4><p>5 ciudadanos iniciales al parche de comida más cercano. El 6º también a comida.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> prioridad total</div></div></div>
+      <div class="phase-step"><div class="phase-num" style="background:rgba(139,105,20,0.2);color:#8b6914">1:30</div><h4>Madera</h4><p>Ciudadanos 7 a ~12 al bosque. Acumula ~250 de madera.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/wood-icon.png" class="res-img" alt="madera"> acumular</div></div></div>
+      <div class="phase-step"><div class="phase-num" style="background:rgba(212,168,75,0.2);color:#d4a84b">3:00</div><h4>Expansión</h4><p>Asentamiento junto a mina de oro o hierro. Ciudadanos constantes.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"></div><div class="res-cost-item"><img src="../assets/img/wood-icon.png" class="res-img" alt="madera"></div></div></div>
+      <div class="phase-step"><div class="phase-num" style="background:rgba(110,127,138,0.2);color:#6e7f8a">5:00</div><h4>Militar</h4><p>Primer edificio militar (barracón, establo o arquería). Empieza tropas.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"></div><div class="res-cost-item"><img src="../assets/img/iron-icon.png" class="res-img" alt="hierro"><img src="../assets/img/wood-icon.png" class="res-img" alt="madera"></div></div></div>
+      <div class="phase-step"><div class="phase-num">7:00</div><h4>Primera unidad</h4><p>Debes tener tu primera unidad militar lista. Defiende o ataca.</p></div>
+      <div class="phase-step"><div class="phase-num">10:00+</div><h4>Evalúa</h4><p>¿Ganas? Presiona. ¿Te atacan? Refuerza y contraataca. <strong>Siempre más ciudadanos.</strong></p></div>
+    </div>
+
+    <h3>Estrategia inicial</h3>
+    <div class="unit-grid">
+      <div class="unit-card"><div class="unit-body"><h4>Attack-Move (Ctrl+Click)</h4><p>Selecciona tropas y <strong>mantén Ctrl mientras haces clic</strong> en el destino. Las posiciones se mostrarán en naranja. Tus tropas atacarán automáticamente todo lo que encuentren en su camino.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Presión Constante</h4><p>No hagas un ataque masivo cada 10 minutos. Haz <strong>ataques pequeños y frecuentes</strong>. Pon el punto de reunión del barracón dentro de la base enemiga. Si no le das tiempo a recuperarse entre oleadas, su economía colapsa.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Flujo de Ciudadanos</h4><p>La prioridad #1 siempre es <strong>mantener producción constante de ciudadanos</strong>. Si te quedas sin comida para ciudadanos, has perdido. Puebla asentamientos cerca de oro/hierro (no cerca de comida o madera que se agotan).</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Cuándo Avanzar de Época</h4><p>El mejor momento es <strong>justo después de repeler un ataque enemigo</strong>. Ten 1.5× los recursos necesarios en Torneo (2.5× en Standard). Así no te pillan sin tropas durante la transición. Nunca avances durante un asedio activo.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>RM vs Deathmatch</h4><p><strong>RM (Random Map):</strong> empiezas con pocos recursos. La economía es tan importante como lo militar. <strong>DM:</strong> empiezas con recursos masivos. Prioriza edificios militares (15-20) desde el primer segundo.</p></div></div>
+    </div>
+
+    <h3>Errores comunes</h3>
+    <div class="tips-grid">
+      <div class="tip-card"><h4>No producir ciudadanos</h4><p>La prioridad nº1 es mantener producción constante de ciudadanos. Sin ellos no hay economía, sin economía no hay ejército.</p></div>
+      <div class="tip-card"><h4>Poblar sin poder mantener</h4><p>No llenes un asentamiento de ciudadanos si luego no puedes mantener el flujo de producción desde el nuevo centro urbano.</p></div>
+      <div class="tip-card"><h4>Avanzar de época durante un ataque</h4><p>Gastar recursos en cambiar de era mientras te atacan es letal. Primero defiende, luego avanza.</p></div>
+      <div class="tip-card"><h4>No defender los recursos</h4><p>Sin torres ni templos cerca de tus minas y granjas, un ataque rápido te dejará sin economía en segundos.</p></div>
+      <div class="tip-card"><h4>Monoejército</h4><p>Usar un solo tipo de unidad te hace predecible y fácil de contrarrestar. Combina tipos para cubrir debilidades.</p></div>
+      <div class="tip-card"><h4>No usar atajos de teclado</h4><p>Ctrl+1 para grupos, doble clic en edificios para producciones masivas, Tab para ciudadanos inactivos. Marcan la diferencia.</p></div>
+    </div>
+
+    <p style="text-align:center;color:var(--fg-muted);margin-bottom:16px">Pulsa <strong style="color:var(--fg-primary)">F11</strong> para el cronómetro. Los primeros 10 minutos definen tu trayectoria.</p>
+
+    <div class="dual-card">
+      <div class="side"><h4>Rush — Ataque Relámpago</h4><p>Daña la economía enemiga más rápido de lo que cuesta recuperarse. Produce tropas baratas y ataca en oleadas. <strong>No malgastes oro o piedra</strong> si vas a rushear con tanques.</p><p style="font-size:0.75rem;color:var(--accent)">Objetivo: desequilibrar, no aniquilar.</p></div>
+      <div class="side"><h4>Boom — Desarrollo Económico</h4><p>Prioriza defensa y crecimiento. Construye una economía que te permita producir más, conseguir mejor tecnología o <strong>aplastar con ventaja de época</strong>.</p><p style="font-size:0.75rem;color:var(--accent)">Objetivo: ventaja tecnológica y numérica.</p></div>
+    </div>
+
+    <h3>Cuándo avanzar de época</h3>
+    <div class="unit-grid">
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-star"/></svg></div><div class="unit-body"><h4>Momento ideal</h4><p>Justo después de una victoria militar. Tu enemigo está reconstruyendo; tú avanzas sin presión.</p></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-shield"/></svg></div><div class="unit-body"><h4>Reservas necesarias</h4><p>Ten 1.5× el coste en torneo, o 2.5× en estándar. Así no te quedas sin recursos para defenderte durante la transición.</p></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-clock"/></svg></div><div class="unit-body"><h4>Nunca durante un asedio</h4><p>Si te atacan activamente, gastar recursos en cambiar de era es letal. Defiende primero, avanza después.</p></div></div>
+    </div>
+
+    <h3>Fases de la Partida</h3>
+    <div class="phase-timeline">
+      <div class="phase-step"><div class="phase-num">1</div><h4>Apertura</h4><p>Build order. Exploración. Primer contacto con el enemigo.</p></div>
+      <div class="phase-step"><div class="phase-num">2</div><h4>Media Partida</h4><p>Expansión territorial. Forward Building cerca del enemigo. Coordina con aliados: rápidos distraen, pesados golpean.</p></div>
+      <div class="phase-step"><div class="phase-num">3</div><h4>Final</h4><p>Asalta desde múltiples direcciones. Si pierdes, traslada ciudadanos a territorio aliado. No te rindas sin avisar.</p></div>
+    </div>
+
+    <h3>Estrategias de la Comunidad</h3>
+    <div class="strat-index">
+      <div class="strat-card"><div class="strat-header"><span class="strat-num">Sniper Rush</span></div><h3>Ataque Relámpago con Francotirador</h3><div class="strat-meta"><span>Ueriah</span><span>WWI—Moderno</span></div><p>Estrategia de alto riesgo/recompensa. Elige <strong>Francia</strong> (o cualquier civ con bonus a comida y oro). Construye barracón inmediatamente. Primer sniper a los ~2 minutos: 150 oro + 150 comida. Envíalo directo a la base enemiga. Elimina ciudadanos en los parches de recursos. Si matas 6-7 ciudadanos rápido, el enemigo no se recupera. Lleva 1-2 doughboys de reserva para rematar heridos. Counter: torres defensivas bien colocadas o tu propio sniper en modo defensivo.</p></div>
+      <div class="strat-card"><div class="strat-header"><span class="strat-num">Riders on the Storm</span></div><h3>Arqueros a Caballo</h3><div class="strat-meta"><span>Ueriah</span><span>Media</span></div><p>Hordas de arqueros montados con velocidad mejorada. Con los <strong>Asirios</strong> (+HP, +Alcance, +Velocidad para arqueros montados) puedes destrozar granjas y minas y retirarte antes de que te atrapen. Añade caballeros y catafractos para protegerlos de cuerpo a cuerpo. Usa profetas con Malaria contra las hordas enemigas. Counter: torres densas con solapamiento + templos para evitar calamidades.</p></div>
+      <div class="strat-card"><div class="strat-header"><span class="strat-num">Civ Pre-Espacial</span></div><h3>Configuración Óptima (AoC)</h3><div class="strat-meta"><span>DJ</span><span>Prehistórica</span></div><p>Expansionismo + reducción de costes + caza y agricultura. Arqueros y mazos para presión temprana.</p></div>
+      <div class="strat-card"><div class="strat-header"><span class="strat-num">Dragoon Flood</span></div><h3>Inundación de Dragones (DM)</h3><div class="strat-meta"><span>EE Talon</span><span>Industrial</span></div><p>Deathmatch Industrial con <strong>Otomanos</strong>. Construye inmediatamente 12 establos y 4 fábricas de asedio. Mejora los dragones: ataque ×2, HP ×2, alcance ×1. Mejora las bombardas: alcance ×2, ataque ×2, HP ×1. Construye muchas torres y hospitales. Construye el <strong>Templo de Zeus</strong> para autocuración. Envía globos de observación sobre el enemigo y bombardea desde 13 de alcance. Carga con dragones y el héroe.</p></div>
+      <div class="strat-card"><div class="strat-header"><span class="strat-num">Startup Básico</span></div><h3>Distribución de Ciudadanos</h3><div class="strat-meta"><span>fissh_e</span><span>Todas</span></div><p>5 ciudadanos a huertos, 7–12 a madera. Edificio militar en cuanto puedas. Ciudadanos siempre.</p></div>
+      <div class="strat-card"><div class="strat-header"><span class="strat-num">Contribution to Mankind</span></div><h3>Contrarrestar Rush Espadas/Arqueros</h3><div class="strat-meta"><span>Buttfreek</span><span>Media</span></div><p>Construye 4 casas para bonus de moral (+40% reducción de daño). <strong>No cargues contra una fuerza mixta de espadas y arqueros</strong> con tus espadas: perderás. Defiende, mejora armadura de espadas, pide ayuda al aliado. En la fase tardía, usa <strong>ballestas + catafractos</strong>: las ballestas destrozan espadas y arqueros en área; los catafractos absorben el daño. No uses trebuchets contra esta composición: las ballestas son 10× más efectivas.</p></div>
+    </div>
+
+    <h3>Principios Universales</h3>
+    <div class="dual-card">
+      <div class="side"><h4>No te aburras nunca</h4><p>Pulsa Tab constantemente para encontrar ciudadanos inactivos. Siempre hay algo que construir, expandir o mejorar. Si estás parado mirando la pantalla, estás perdiendo.</p></div>
+      <div class="side"><h4>Veteranos virtuales</h4><p>Rota las unidades heridas a la retaguardia y cúralas. Es más barato curar que reemplazar. Puedes salvar hasta el 60% de un ejército con buena microgestión de médicos.</p></div>
+    </div>
+
+      </div>
+    </div>
+    <div class="section-block">
+      <div class="container">
+
+    <!-- ================================================================ -->
+    <!-- PRINCIPIOS DE DISEÑO DE BASE -->
+    <!-- ================================================================ -->
+    <div class="section-header" id="diseno-base"><h2>Principios de diseño de base</h2><p>Cómo construir, defender y optimizar tu asentamiento</p></div>
+
+    <div class="unit-grid">
+      <div class="unit-card"><div class="unit-icon-wrap"><img src="../assets/img/town-center-icon.png" alt="Viviendas"></div><div class="unit-body"><h4>Viviendas y Moral</h4><p>2 casas (torneo) o 4 (estándar) dentro del radio del centro urbano. La línea verde/azul discontinua al seleccionar el TC muestra el área. Hasta un 40% de reducción de daño para todas las tropas dentro.</p></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><img src="../assets/img/granary-icon.png" alt="Granjas"></div><div class="unit-body"><h4>Zonas Agrícolas</h4><p>6 graneros en formación 3×2. Rodéalos con muros, torres y AA. Un ataque rápido de caballería puede aniquilar a todos los granjeros en segundos si no hay defensa. Defiende siempre las granjas.</p></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><img src="../assets/img/barracks-icon.png" alt="Barracones"></div><div class="unit-body"><h4>Producción Militar en Masa</h4><p>Construye 6+ barracones. Doble clic en uno = seleccionas todos. Shift+clic en unidad = encolas 5 por barracón. Con 6 barracones produces 30 unidades de golpe. Convierte madera sobrante en barcos de pesca o granjas.</p></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><img src="../assets/img/tower-icon.png" alt="Torres"></div><div class="unit-body"><h4>Torres Defensivas</h4><p>Una torre no sirve de nada. 10 empiezan a funcionar. 50 imponen respeto. 200+ crean una fortaleza. Colócalas en triángulo con solapamiento de rangos. Las torres son más útiles pre-Edad Oscura y de WW1 a Nano. En edades medias pierden eficacia.</p></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><img src="../assets/img/temple-icon.png" alt="Templos"></div><div class="unit-body"><h4>Templos Anti-Calamidades</h4><p>Imprescindibles antes de la pólvora (profetas enemigos pueden arrasar tus defensas con terremotos) y en mapas de islas (un huracán bien puesto destruye una flota entera). Coloca templos entre tus torres y cerca de la costa.</p></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><img src="../assets/img/airport-icon.png" alt="Hospitales"></div><div class="unit-body"><h4>Hospitales y AA Guns</h4><p>Al menos un hospital por base: rota tropas heridas a retaguardia para curarlas. Es más barato que producir nuevas. Las AA guns deben ir escondidas entre edificios y árboles, protegidas por torres y guardias, o serán el primer objetivo de los marines.</p></div></div>
+    </div>
+
+    <h3>Colocación óptima de asentamientos</h3>
+    <p style="font-size:0.85rem;color:var(--fg-muted)">Extraído de la guía de Ueriah. El secreto está en la <strong>distancia y la población</strong>.</p>
+    <div class="settlement-diagram">
+      <div class="settlement-box">
+        <h4>Asentamiento sin poblar</h4>
+        <svg viewBox="0 0 200 80" width="200" height="80">
+          <rect x="80" y="20" width="40" height="40" rx="4" fill="#111318" stroke="#5f6570" stroke-width="1.5"/>
+          <text x="100" y="44" font-size="9" fill="#9aa0ab" font-family="sans-serif">TC</text>
+          <circle cx="50" cy="40" r="14" fill="#111318" stroke="#5f6570" stroke-width="1.5" stroke-dasharray="3"/>
+          <text x="50" y="37" text-anchor="middle" font-size="9" fill="#d4a84b" font-family="sans-serif">Au</text>
+          <text x="50" y="48" text-anchor="middle" font-size="7" fill="#6e7f8a" font-family="sans-serif">15</text>
+          <line x1="64" y1="40" x2="80" y2="40" stroke="#5f6570" stroke-width="0.8" marker-end="url(#arr)"/>
+          <defs><marker id="arr" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto"><polygon points="0,0 6,2 0,4" fill="#5f6570"/></marker></defs>
+        </svg>
+        <p style="font-size:0.75rem;color:var(--fg-muted)">Un minero lleva 15 de oro al centro urbano.</p>
+        <div class="settlement-result" style="color:#5f6570">Recibes 15 de oro</div>
+      </div>
+      <div class="settlement-box">
+        <h4>Capitolio con 50 ciudadanos</h4>
+        <svg viewBox="0 0 200 80" width="200" height="80">
+          <rect x="80" y="20" width="40" height="40" rx="4" fill="#111318" stroke="#d4a84b" stroke-width="2"/>
+          <text x="100" y="38" text-anchor="middle" font-size="8" fill="#d4a84b" font-family="sans-serif">CAP</text>
+          <text x="100" y="50" text-anchor="middle" font-size="7" fill="#d4a84b" font-family="sans-serif">×2 radio</text>
+          <circle cx="50" cy="40" r="14" fill="#111318" stroke="#d4a84b" stroke-width="1.5" stroke-dasharray="3"/>
+          <text x="50" y="37" text-anchor="middle" font-size="9" fill="#d4a84b" font-family="sans-serif">Au</text>
+          <text x="50" y="48" text-anchor="middle" font-size="7" fill="#6e7f8a" font-family="sans-serif">15</text>
+          <line x1="64" y1="40" x2="80" y2="40" stroke="#d4a84b" stroke-width="1.2" marker-end="url(#arr2)"/>
+          <defs><marker id="arr2" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto"><polygon points="0,0 6,2 0,4" fill="#d4a84b"/></marker></defs>
+        </svg>
+        <p style="font-size:0.75rem;color:var(--fg-muted)">El mismo minero entrega 15, pero el capitolio lo multiplica.</p>
+        <div class="settlement-result">Recibes 30 de oro <span style="font-size:0.75rem;color:#34a853">×2</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:0.82rem;color:var(--fg-muted);margin-top:8px"><strong>Regla:</strong> coloca el asentamiento a <strong>máximo 2 casillas</strong> de la mina. Llena el asentamiento hasta 50 ciudadanos para duplicar la entrega de recursos. Un capitolio grande puede cubrir 2 minas distintas.</p>
+
+    <h3>Sistema de moral</h3>
+    <p>Cada punto de moral <strong>reduce el daño recibido en ~10%</strong>. Se indica con puntos verdes bajo la unidad (máximo 5 puntos).</p>
+    <div class="morale-bars">
+      <div class="morale-row"><span class="morale-label">1 Casa</span><span class="morale-value">−10% daño</span><div class="morale-bar-bg"><div class="morale-bar-fill" style="width:20%"></div></div></div>
+      <div class="morale-row"><span class="morale-label">2 Casas (Torneo)</span><span class="morale-value">−20% daño</span><div class="morale-bar-bg"><div class="morale-bar-fill" style="width:40%"></div></div></div>
+      <div class="morale-row"><span class="morale-label">4 Casas (Estándar)</span><span class="morale-value">−40% daño</span><div class="morale-bar-bg"><div class="morale-bar-fill" style="width:60%"></div></div></div>
+      <div class="morale-row"><span class="morale-label">Torre en radio TC</span><span class="morale-value">−50% daño</span><div class="morale-bar-bg"><div class="morale-bar-fill" style="width:80%"></div></div></div>
+      <div class="morale-row"><span class="morale-label">Héroe Guerrero</span><span class="morale-value">−50% daño</span><div class="morale-bar-bg"><div class="morale-bar-fill" style="width:100%"></div></div></div>
+    </div>
+    <p style="font-size:0.8rem;color:var(--fg-muted)"><strong>Torre bajo área de TC:</strong> equivalente a 5 puntos de moral. <strong>Héroe Guerrero:</strong> radio de ~6 casillas. Ambos otorgan hasta un 50% de reducción de daño. La moral de héroes y casas <strong>no se acumula</strong>: se aplica la mayor.</p>
+
+      </div>
+    </div>
+    <div class="section-block">
+      <div class="container">
+
+    <!-- ================================================================ -->
+    <!-- COMBATE -->
+    <!-- ================================================================ -->
+    <div class="section-header" id="combate"><h2>Combate</h2><p>Unidades, contadores y composición de escuadras</p></div>
+
+    <h3>Matriz de contadores</h3>
+    <table class="counter-table">
+      <tr><th>Tu unidad</th><th><span class="col-strong">Aplasta a...</span></th><th><span class="col-weak">Le aplasta...</span></th></tr>
+      <tr><td class="c-shock">Infantería de choque (espada)</td><td class="c-archer">Arqueros</td><td class="c-spear">Lanceros, Piqueros</td></tr>
+      <tr><td class="c-spear">Infantería de lanza (picas)</td><td class="c-shock">Choque, Caballería</td><td class="c-archer">Arqueros, Armas de fuego</td></tr>
+      <tr><td class="c-archer">Arqueros</td><td class="c-spear">Lanceros</td><td class="c-shock">Infantería de choque</td></tr>
+      <tr><td class="c-gun">Infantería de pólvora</td><td class="c-spear">Lanceros, Caballería de fuego</td><td class="c-tank">Tanques, Artillería, Bombarderos</td></tr>
+      <tr><td class="c-cav">Caballería de espada</td><td class="c-archer">Arqueros, Pólvora, Cañones</td><td class="c-spear">Lanceros, Caballería de fuego</td></tr>
+      <tr><td class="c-tank">AT / Bazooka</td><td class="c-tank">Tanques</td><td class="c-mg">Anti-infantería</td></tr>
+      <tr><td class="c-mg">Anti-infantería (MG)</td><td class="c-shock">Infantería</td><td class="c-mg">Otra anti-infantería</td></tr>
+      <tr><td class="c-arti">Artillería de asedio</td><td class="c-arti">Edificios, grupos</td><td class="c-cav">Caballería rápida, Tanques</td></tr>
+      <tr><td class="c-frig">Fragata</td><td class="c-frig">Submarinos, Galeras</td><td class="c-bs">Acorazados</td></tr>
+      <tr><td class="c-bs">Acorazado</td><td class="c-frig">Fragatas, Costa</td><td class="c-frig">Submarinos</td></tr>
+      <tr><td class="c-fighter">Caza</td><td class="c-bomber">Bombarderos, Helicópteros</td><td class="c-mg">Anti-aéreo (AA)</td></tr>
+      <tr><td class="c-bomber">Bombardero</td><td class="c-bomber">Tierra, Mar, Edificios</td><td class="c-fighter">Cazas, AA</td></tr>
+    </table>
+
+    <h3>Unidades de Infantería</h3>
+    <p>La infantería es frecuentemente menospreciada a partir de la WWI, sin embargo <strong>bien organizada en escuadras supera en eficiencia a los blindados puros</strong>.</p>
+    <div class="unit-grid">
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-mg"/></svg></div><img class="unit-portrait" src="../assets/img/machine-gunner.jpg" alt="Ametrallador"><div class="unit-body"><h4>Ametrallador</h4><p>Columna vertebral. Excelente contra infantería y ciudadanos.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 80</div><div class="res-cost-item"><img src="../assets/img/gold-icon.png" class="res-img" alt="oro"> 60</div></div></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-bazooka"/></svg></div><img class="unit-portrait" src="../assets/img/bazooka.jpg" alt="Bazooka"><div class="unit-body"><h4>Bazooka</h4><p>Antivehículo. Concentra varios para destruir blindados en una ráfaga.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 70</div><div class="res-cost-item"><img src="../assets/img/gold-icon.png" class="res-img" alt="oro"> 55</div></div></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-marine"/></svg></div><img class="unit-portrait" src="../assets/img/marine.png" alt="Marine"><div class="unit-body"><h4>Doughboy / Marine</h4><p>Se paga con hierro. Absorbe daño y protege artillería.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 40</div><div class="res-cost-item"><img src="../assets/img/iron-icon.png" class="res-img" alt="hierro"> 40</div></div></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-sniper"/></svg></div><img class="unit-portrait" src="../assets/img/sniper.png" alt="Francotirador"><div class="unit-body"><h4>Francotirador</h4><p>Un disparo = una baja. Modo Recon para no revelarse.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 150</div><div class="res-cost-item"><img src="../assets/img/gold-icon.png" class="res-img" alt="oro"> 150</div></div></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-mortar"/></svg></div><img class="unit-portrait" src="../assets/img/trench-mortar.jpg" alt="Mortero"><div class="unit-body"><h4>Mortero de Trinchera</h4><p>Daño en área. Dispara sobre muros.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 60</div><div class="res-cost-item"><img src="../assets/img/gold-icon.png" class="res-img" alt="oro"> 50</div></div></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-stinger"/></svg></div><img class="unit-portrait" src="../assets/img/stinger-soldier.png" alt="Stinger"><div class="unit-body"><h4>Stinger Soldier</h4><p>Defensa AA imprescindible en épocas modernas.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 60</div><div class="res-cost-item"><img src="../assets/img/gold-icon.png" class="res-img" alt="oro"> 50</div></div></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-partisan"/></svg></div><img class="unit-portrait" src="../assets/img/partisan.jpg" alt="Partisano"><div class="unit-body"><h4>Partisano</h4><p>Atraviesa bosques. Emboscador de leñadores.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 40</div><div class="res-cost-item"><img src="../assets/img/iron-icon.png" class="res-img" alt="hierro"> 40</div></div></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-flame"/></svg></div><img class="unit-portrait" src="../assets/img/flame-thrower.jpg" alt="Lanzallamas"><div class="unit-body"><h4>Lanzallamas</h4><p>Demolición de edificios de alto PV.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 60</div><div class="res-cost-item"><img src="../assets/img/gold-icon.png" class="res-img" alt="oro"> 45</div></div></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-medic"/></svg></div><div class="unit-body"><h4>Médico</h4><p>Rota heridos hacia atrás. Multiplica durabilidad.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 75</div><div class="res-cost-item"><img src="../assets/img/gold-icon.png" class="res-img" alt="oro"> 50</div></div></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-citizen"/></svg></div><div class="unit-body"><h4>Ciudadano</h4><p>Ingeniero de combate: hospitales, torres, AA, cuarteles.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 50</div></div></div></div>
+    </div>
+
+    <h3>Vehículos de Apoyo</h3>
+    <div class="unit-grid">
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-halftrack"/></svg></div><img class="unit-portrait" src="../assets/img/halftrack.png" alt="Halftrack"><div class="unit-body"><h4>Semioruga (Halftrack)</h4><p>Defensa AA móvil. Más barato que fuerza aérea.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 100</div><div class="res-cost-item"><img src="../assets/img/iron-icon.png" class="res-img" alt="hierro"> 100</div></div></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-heli"/></svg></div><img class="unit-portrait" src="../assets/img/helicopter-transport.png" alt="Helicóptero"><div class="unit-body"><h4>Helicóptero Transporte</h4><p>Incursiones relámpago: carga, arrasa, retírate.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 120</div><div class="res-cost-item"><img src="../assets/img/gold-icon.png" class="res-img" alt="oro"> 100</div></div></div></div>
+      <div class="unit-card"><div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#icon-atgun"/></svg></div><img class="unit-portrait" src="../assets/img/at-gun.png" alt="AT Gun"><div class="unit-body"><h4>Cañón AT</h4><p>Complemento definitivo contra blindados.</p><div class="res-cost"><div class="res-cost-item"><img src="../assets/img/food-icon.png" class="res-img" alt="comida"> 90</div><div class="res-cost-item"><img src="../assets/img/gold-icon.png" class="res-img" alt="oro"> 110</div></div></div></div>
+    </div>
+
+    <h3>Comparativa de Costes</h3>
+    <div class="cost-chart">
+      <div class="cost-row"><div class="cost-row-label"><span>Escuadra de Infantería</span><span>835 comida · 200 hierro · 640 oro</span></div><div class="cost-bar-bg"><div class="cost-bar-seg cost-food" style="width:47%"></div><div class="cost-bar-seg cost-iron" style="width:11%"></div><div class="cost-bar-seg cost-gold" style="width:36%"></div></div></div>
+      <div class="cost-row"><div class="cost-row-label"><span>Grupo de Tanques</span><span>860 comida · 860 hierro</span></div><div class="cost-bar-bg"><div class="cost-bar-seg cost-food" style="width:50%"></div><div class="cost-bar-seg cost-iron" style="width:50%"></div></div></div>
+    </div>
+    <p style="font-size:0.78rem;color:var(--fg-muted)">Infantería: 4 ametralladores + 1 médico + 5 doughboys + 3 stingers &nbsp;|&nbsp; Tanques: 4 HE + 2 AP + 2 semiorugas</p>
+
+      </div>
+    </div>
+    <div class="section-block">
+      <div class="container">
+
+    <!-- ================================================================ -->
+    <!-- TÁCTICAS -->
+    <!-- ================================================================ -->
+    <div class="section-header" id="tacticas"><h2>Tácticas</h2><p>Técnicas avanzadas para dominar el campo de batalla</p></div>
+
+    <h3>Formaciones Tácticas</h3>
+    <div class="dual-card">
+      <div class="side"><h4>Reconocimiento Agresivo</h4><p>1 sniper · 1 médico · 5 doughboys · 1 ciudadano</p><p style="font-size:0.78rem">El sniper elimina civiles; los doughboys distraen; el ciudadano construye barracones en territorio enemigo.</p></div>
+      <div class="side"><h4>Fox and Hounds</h4><p>4 partisanos · 1 sniper · 1 médico</p><p style="font-size:0.78rem">Incursiones en bosques contra leñadores. Zigzaguea. El sniper abate perseguidores uno a uno.</p></div>
+    </div>
+
+    <h3>El Arte de la Guerra — Tácticas Esenciales</h3>
+    <div class="unit-grid">
+      <div class="unit-card"><div class="unit-body"><h4>Waypoints y Micro Inicial</h4><p>Usa <strong>waypoints</strong> en el centro urbano para enviar ciudadanos automáticamente a recursos. Construye 6 ciudadanos con waypoint en comida: los 6 irán solos. Pon waypoint en un asentamiento para poblarlo automáticamente con 5 ciudadanos sin seleccionarlos uno a uno.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Turtling Defensivo</h4><p>No pongas una torre sola: pon <strong>3-4 torres</strong> con muros entre ellas para canalizar al enemigo. Usa órdenes "Hold Ground" en arqueros para que disparen sin moverse. Las torres frenan a la IA pero un jugador humano las atraviesa: necesitas también tropas.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Expansión con Resource Towns</h4><p>Envía ciudadanos y tropas a <strong>construir mini-bases</strong> lejos de tu base principal. Cada una con muros, torres, templo y guarnición. Así proteges minas lejanas y niegas recursos al enemigo. Si caen, tu base principal sigue intacta.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Formación en Línea</h4><p>Selecciona tropas con lazo y <strong>arrastra hacia la dirección</strong> que quieres que miren. Los cuerpos a cuerpo en "Guard" mantienen la formación. Arqueros detrás, asedio atrás del todo. <strong>Unidades rápidas en los flancos</strong> para envolver al enemigo.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Uso del Terreno</h4><p><strong>Coloca arqueros en colinas</strong>: los enemigos suben más lento y reciben disparos extra. Una línea de arqueros en altura puede destrozar elefantes antes de que lleguen. Usa bosques para ocultar tropas y emboscar.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Tácticas de Asedio</h4><p>Pon <strong>piqueros delante del asedio</strong> para detener caballería. Arqueros detrás de los piqueros para abatir infantería. Caballería rápida guardando los flancos del asedio. Nunca dejes el asedio sin escolta: es el primer objetivo del enemigo.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Microgestiona las Bajas</h4><p>Cuando una unidad está herida, <strong>envíala a retaguardia</strong> con el médico. Es más barato curar que reemplazar. Con buena micro puedes salvar el <strong>60% de tu ejército</strong>. Rota unidades del frente a retaguardia constantemente.</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Multitarea Constante</h4><p>Pulsa <strong>Tab</strong> para ciclar ciudadanos inactivos. Pulsa <strong>Coma</strong> para unidades militares paradas. <strong>Nunca estés mirando la pantalla sin hacer nada</strong>: siempre hay algo que construir, expandir o mejorar.</p></div></div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© EEpedia — Basado en guías de Ueriah, Buttfreek, Introspection, TheShadowDawn, DJ, EE Talon y fissh_e. Compilado por Oblivion.</p>
+  </footer>
+</body>
+</html>

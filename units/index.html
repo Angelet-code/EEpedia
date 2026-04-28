@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Enciclopedia de Unidades de Empire Earth: infantería, caballería, artillería, marina, aviación y cybers. Relaciones roca-papel-tijera y consejos de uso.">
+  <title>Enciclopedia de Unidades Empire Earth | Portal EE</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-brand"><img src="../assets/img/empire-earth-icon.png" class="nav-logo-img" alt="">EEpedia</a>
+    <a href="../guides/index.html">Guías</a>
+    <a href="index.html">Unidades</a>
+    <a href="../powers/index.html">Poderes</a>
+    <a href="../glitches/index.html">Glitches</a>
+    <a href="../calculator.html">Calculadora</a>
+  </nav>
+
+  <!-- SVG Sprite de unidades -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <defs>
+      <g id="u-cav"><circle cx="12" cy="8" r="5" fill="#d4a84b"/><rect x="7" y="13" width="10" height="11" rx="2" fill="#e8eaed"/></g>
+      <g id="u-citizen"><circle cx="12" cy="7" r="5" fill="#d4a84b"/><rect x="8" y="12" width="8" height="5" rx="2" fill="#e8eaed"/><rect x="10" y="17" width="4" height="5" rx="1" fill="#5f6570"/></g>
+      <g id="u-priest"><circle cx="12" cy="7" r="5" fill="#d4a84b"/><rect x="9" y="12" width="6" height="10" rx="1" fill="#e8eaed"/><circle cx="12" cy="14" r="2" fill="#ea4335"/></g>
+      <g id="u-ship"><path d="M4 16 L8 6 L16 6 L20 16" fill="none" stroke="#d4a84b" stroke-width="2"/><rect x="10" y="6" width="4" height="10" rx="1" fill="#e8eaed"/><line x1="4" y1="18" x2="20" y2="18" stroke="#5f6570" stroke-width="2"/></g>
+      <g id="u-cyber"><rect x="6" y="4" width="12" height="16" rx="3" fill="none" stroke="#d4a84b" stroke-width="1.5"/><circle cx="12" cy="9" r="2" fill="#e8eaed"/><line x1="8" y1="14" x2="16" y2="14" stroke="#e8eaed" stroke-width="1.5"/><line x1="8" y1="17" x2="16" y2="17" stroke="#e8eaed" stroke-width="1.5"/></g>
+      <g id="u-hero"><path d="M12 2 L22 8 L22 16 L12 22 L2 16 L2 8 Z" fill="none" stroke="#d4a84b" stroke-width="1.5"/><path d="M12 6 L12 18 M6 12 L18 12" stroke="#e8eaed" stroke-width="1.5" stroke-linecap="round"/></g>
+      <g id="u-ram"><rect x="16" y="7" width="5" height="10" rx="1" fill="#d4a84b"/><rect x="3" y="11" width="15" height="5" rx="1" fill="#e8eaed"/></g>
+      <g id="u-medic"><circle cx="12" cy="12" r="10" fill="none" stroke="#e8eaed" stroke-width="2"/><line x1="12" y1="6" x2="12" y2="18" stroke="#ea4335" stroke-width="2.5" stroke-linecap="round"/><line x1="6" y1="12" x2="18" y2="12" stroke="#ea4335" stroke-width="2.5" stroke-linecap="round"/></g>
+      <g id="u-stealth"><line x1="5" y1="19" x2="22" y2="7" stroke="#d4a84b" stroke-width="3" stroke-linecap="round"/><line x1="3" y1="17" x2="24" y2="5" stroke="#e8eaed" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="8" r="4" fill="none" stroke="#ea4335" stroke-width="1.5"/><circle cx="20" cy="8" r="1" fill="#ea4335"/></g>
+      <g id="u-flame"><rect x="12" y="12" width="8" height="10" rx="2" fill="#5f6570"/><path d="M4 12 Q8 6 12 12 Q10 8 8 14 Q6 10 4 12" fill="#ea4335"/><path d="M4 14 Q6 10 8 14 Q6 16 4 14" fill="#f1c40f"/></g>
+      <g id="u-tower"><path d="M12 6 L18 18 L6 18 Z" fill="#d4a84b"/><rect x="10" y="10" width="4" height="8" rx="1" fill="#e8eaed"/></g>
+      <g id="u-siege"><path d="M12 6 L18 18 L6 18 Z" fill="#d4a84b"/><rect x="10" y="10" width="4" height="8" rx="1" fill="#e8eaed"/><circle cx="12" cy="9" r="2" fill="#ea4335"/></g>
+      <g id="u-fbomber"><path d="M6 14 Q12 4 18 14" fill="none" stroke="#d4a84b" stroke-width="2"/><path d="M8 14 Q12 8 16 14" fill="none" stroke="#e8eaed" stroke-width="1.5"/><line x1="12" y1="14" x2="12" y2="20" stroke="#5f6570" stroke-width="1.5"/></g>
+      <g id="u-scout"><circle cx="12" cy="12" r="8" fill="none" stroke="#d4a84b" stroke-width="1.5"/><circle cx="12" cy="12" r="2" fill="#e8eaed"/><line x1="6" y1="6" x2="8" y2="8" stroke="#d4a84b" stroke-width="1.5"/><line x1="18" y1="6" x2="16" y2="8" stroke="#d4a84b" stroke-width="1.5"/></g>
+      <g id="u-prophet"><circle cx="12" cy="6" r="4" fill="#d4a84b"/><rect x="9" y="10" width="6" height="12" rx="1" fill="#e8eaed"/><circle cx="12" cy="13" r="2" fill="#ea4335"/><circle cx="12" cy="19" r="1.5" fill="#ea4335"/></g>
+    </defs>
+  </svg>
+
+  <div class="container">
+    <!-- Hero -->
+    <div class="hero">
+      <img src="../assets/img/empire-earth-icon.png" alt="EE" class="hero-logo">
+      <h1>Enciclopedia de Unidades</h1>
+      <p class="subtitle">Por DarthMarth — Sistema roca‑papel‑tijera aplicado a todas las eras. Conoce a fondo cada unidad para componer ejércitos imparables.</p>
+    </div>
+
+    <p>Empire Earth utiliza un sistema de contadores donde cada tipo de unidad es fuerte contra unos enemigos y débil contra otros. Conocer estas relaciones es indispensable para componer ejércitos equilibrados y reaccionar a las tácticas del oponente.</p>
+  </div>
+
+  <div class="sections-wrapper">
+    <div class="section-block">
+      <div class="container">
+
+    <div class="section-header"><h2>Controles del Juego</h2><p>Atajos de teclado esenciales para jugar con velocidad y precisión</p></div>
+
+    <div class="unit-grid">
+      <div class="unit-card"><div class="unit-body"><h4>Vista y Cámara</h4><p><strong>Flechas:</strong> Mover cámara &nbsp;·&nbsp; <strong>[ ]:</strong> Zoom ± &nbsp;·&nbsp; <strong>.</strong> Seguir unidad &nbsp;·&nbsp; <strong>F2:</strong> Modos zoom &nbsp;·&nbsp; <strong>F5:</strong> Unidades ocultas &nbsp;·&nbsp; <strong>F9:</strong> Captura &nbsp;·&nbsp; <strong>Ctrl+F9:</strong> Captura mapa completo</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Selección</h4><p><strong>Tab:</strong> Ciudadano inactivo &nbsp;·&nbsp; <strong>,</strong> Unidad militar inactiva &nbsp;·&nbsp; <strong>Ctrl+1-9:</strong> Crear grupo &nbsp;·&nbsp; <strong>Shift+1-9:</strong> Añadir a grupo &nbsp;·&nbsp; <strong>1-9:</strong> Seleccionar grupo &nbsp;·&nbsp; <strong>Alt+1-9:</strong> Centrar grupo</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Unidades Específicas</h4><p><strong>A:</strong> Bombardero atómico inactivo &nbsp;·&nbsp; <strong>B:</strong> Bombardero inactivo &nbsp;·&nbsp; <strong>D:</strong> Cazabombardero inactivo &nbsp;·&nbsp; <strong>F:</strong> Caza inactivo</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Juego y Partida</h4><p><strong>+/- (Num):</strong> Velocidad ± &nbsp;·&nbsp; <strong>Enter:</strong> Chat &nbsp;·&nbsp; <strong>F3:</strong> Pausa &nbsp;·&nbsp; <strong>F4:</strong> Guardado rápido &nbsp;·&nbsp; <strong>F10:</strong> Opciones &nbsp;·&nbsp; <strong>Ctrl+Shift+Z:</strong> Ataque total IA</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Atajos de Combate</h4><p><strong>Ctrl+clic:</strong> Attack-move (las tropas atacan todo en su camino) &nbsp;·&nbsp; <strong>Shift+clic:</strong> Encolar órdenes &nbsp;·&nbsp; <strong>Doble clic en edificio:</strong> Seleccionar todos del mismo tipo &nbsp;·&nbsp; <strong>Alt+F:</strong> Modo bengala</p></div></div>
+      <div class="unit-card"><div class="unit-body"><h4>Consejo Profesional</h4><p>Usa <strong>Ctrl+1</strong> para asignar tu ejército principal al grupo 1. <strong>Ctrl+2</strong> para el asedio. <strong>Ctrl+3</strong> para la caballería rápida. Cambia entre grupos con 1, 2, 3 durante la batalla para coordinar ataques desde múltiples ángulos.</p></div></div>
+    </div>
+
+      </div>
+    </div>
+    <div class="section-block">
+      <div class="container">
+
+    <!-- ================================================================ -->
+    <!-- SECCIÓN 1: INFANTERÍA Y CABALLERÍA -->
+    <!-- ================================================================ -->
+    <div class="section-header"><h2>Infantería y Caballería</h2><p>La columna vertebral de todo ejército — domina el sistema roca-papel-tijera</p></div>
+
+    <h3>Infantería</h3>
+    <div class="unit-grid">
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/marine-icon.png" alt="Infantería de Choque">
+        <div class="unit-body">
+          <h4>Infantería de Choque (Shock)</h4>
+          <p><strong>Unidades:</strong> Hombre Mazo, Hombre Maza, Espada Corta, Espada Larga. <strong>Fuerte contra:</strong> Arqueros. <strong>Débil contra:</strong> Infantería de lanza (piercing). <strong>Se crea en:</strong> Barracón. Útiles hasta el Renacimiento por su armadura contra proyectiles. Combínalos con piqueros para cubrir su debilidad.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/partisan-icon.png" alt="Infantería de Lanza">
+        <div class="unit-body">
+          <h4>Infantería de Lanza (Pierce)</h4>
+          <p><strong>Unidades:</strong> Lancero, Falange, Piquero, Alabardero. <strong>Fuerte contra:</strong> Infantería de choque, Caballería. <strong>Débil contra:</strong> Arqueros, Infantería de pólvora. <strong>Se crea en:</strong> Barracón. Los alabarderos aguantan hasta la era Industrial. Mézclalos con infantería de choque para líneas defensivas sólidas.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/archer-icon.png" alt="Arqueros">
+        <div class="unit-body">
+          <h4>Arqueros</h4>
+          <p><strong>Unidades:</strong> Hondero, Arquero Simple, Arco Compuesto, Arco Largo. <strong>Fuerte contra:</strong> Infantería de lanza. <strong>Débil contra:</strong> Infantería de choque. <strong>Se crea en:</strong> Arquería. Principal apoyo a distancia antes del Renacimiento. Mantenlos protegidos con unidades cuerpo a cuerpo.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/machine-gunner-icon.png" alt="Infantería de Pólvora">
+        <div class="unit-body">
+          <h4>Infantería de Pólvora (Gun/Ranged)</h4>
+          <p><strong>Unidades:</strong> Arcabucero, Mosquetero, Granadero, Doughboy, Marine, Sentinel, Guardian. <strong>Fuerte contra:</strong> Lanceros, Caballería con arma de fuego, AT, Zeus Cyber, AA. <strong>Débil contra:</strong> Caballería de espada, Tanques, Artillería, Pandora Cyber, Bombarderos. <strong>Se crea en:</strong> Barracón. Reemplazan a los arqueros como fuerza principal en cuanto están disponibles.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/at-gun-icon.png" alt="Cañones de Campaña">
+        <div class="unit-body">
+          <h4>Cañones de Campaña</h4>
+          <p><strong>Unidades:</strong> Cañonero de Mano, Mortero de Trinchera, Mortero Pesado. <strong>Fuerte contra:</strong> Edificios, Infantería de pólvora. <strong>Débil contra:</strong> Caballería de espada. <strong>Se crea en:</strong> Barracón. Suceden a los arqueros como apoyo. Su daño en área es letal contra infantería agrupada.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/machine-gunner-icon.png" alt="Anti-Infantería">
+        <div class="unit-body">
+          <h4>Infantería Anti‑Infantería</h4>
+          <p><strong>Unidades:</strong> Guardia de Élite, Ametralladora. <strong>Fuerte contra:</strong> Infantería. <strong>Débil contra:</strong> Otras unidades Anti‑Infantería. <strong>Se crea en:</strong> Barracón. Especialistas en barrer infantería enemiga. Úsalos con apoyo para cubrir su menor alcance.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/bazooka-icon.png" alt="Anti-Tanque">
+        <div class="unit-body">
+          <h4>Infantería Anti‑Tanque</h4>
+          <p><strong>Unidades:</strong> Lanzagranadas, Bazooka. <strong>Fuerte contra:</strong> Tanques. <strong>Débil contra:</strong> Anti‑Infantería. <strong>Se crea en:</strong> Barracón. Imprescindibles en toda escuadra de la era atómica. Sus cohetes también dañan edificios.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/sniper-icon.png" alt="Sigilo">
+        <div class="unit-body">
+          <h4>Sigilo (Stealth)</h4>
+          <p><strong>Unidades:</strong> Tirador, Francotirador. <strong>Fuerte contra:</strong> Infantería. <strong>Débil contra:</strong> Anti‑Infantería. <strong>Se crea en:</strong> Barracón. Invisibles hasta que el enemigo se acerca. Disparos casi siempre letales contra infantería (un disparo, una baja).</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/medic-icon.png" alt="Médicos">
+        <div class="unit-body">
+          <h4>Médicos</h4>
+          <p><strong>Unidades:</strong> Médico Imperial, Atómico y Digital. <strong>Fuerte contra:</strong> Ninguno. <strong>Débil contra:</strong> Anti‑Infantería. <strong>Se crea en:</strong> Barracón. Curan automáticamente a las unidades cercanas. Imprescindibles en todo ejército.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/javelin-icon.png" alt="Jabalineros">
+        <div class="unit-body">
+          <h4>Jabalineros</h4>
+          <p><strong>Unidades:</strong> Lanzador de Jabalina, Pilum. <strong>Fuerte contra:</strong> Infantería de choque. <strong>Débil contra:</strong> Otros arqueros. <strong>Se crea en:</strong> Arquería. A diferencia de otros arqueros, tienen daño perforante como los piqueros.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/cav-archer-icon.png" alt="Arquero Veloz">
+        <div class="unit-body">
+          <h4>Arquero Veloz</h4>
+          <p><strong>Unidades:</strong> Arquero en Carro, Arquero a Caballo. <strong>Fuerte contra:</strong> Infantería de lanza. <strong>Débil contra:</strong> Infantería de choque. <strong>Se crea en:</strong> Arquería. Consumen 2 de población. Versión rápida de los arqueros tradicionales. Perfectos para hostigamiento.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/flame-thrower-icon.png" alt="Infantería Miscelánea">
+        <div class="unit-body">
+          <h4>Infantería Miscelánea</h4>
+          <p><strong>Unidades:</strong> Lanzador de Rocas, Sansón, Bárbaro, Vikingo, Partisano, Lanzallamas, Soldado Stinger. Los Sansones arrasan edificios; los Bárbaros atraviesan bosques; los Vikingos son cuerpo a cuerpo con sigilo; los Partisanos atraviesan árboles y atacan aire; los Lanzallamas derriten edificios; los Stinger son la mejor defensa anti‑aérea de infantería.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/sniper-icon.png" alt="Arqueros Misceláneos">
+        <div class="unit-body">
+          <h4>Arqueros Misceláneos</h4>
+          <p><strong>Unidades:</strong> Arquero en Elefante, Ballesta. El Arquero en Elefante es lento pero muy resistente (2 de población). La Ballesta dispara proyectiles letales similares a los francotiradores tempranos.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>Caballería</h3>
+    <div class="unit-grid">
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/marine-icon.png" alt="caballer�a">
+        <div class="unit-body">
+          <h4>Caballería de Espada</h4>
+          <p><strong>Unidades:</strong> Jinete, Catafracto, Coracero, Coracero Imperial. <strong>Fuerte contra:</strong> Arqueros, Infantería de pólvora, Cañones de campaña. <strong>Débil contra:</strong> Infantería de lanza, Caballería con arma de fuego. <strong>Se crea en:</strong> Establos. Consumen 2 de población. Infantería de choque rápida y resistente. Ideales para flanquear.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/marine-icon.png" alt="caballer�a">
+        <div class="unit-body">
+          <h4>Caballería de Lanza (Pierce)</h4>
+          <p><strong>Unidades:</strong> Caballería de Bronce, Caballero. <strong>Fuerte contra:</strong> Infantería de choque, Caballería de choque. <strong>Débil contra:</strong> Infantería de lanza. <strong>Se crea en:</strong> Establos. Consumen 2 de población. Versión más rápida y resistente de la infantería de lanza.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/marine-icon.png" alt="caballer�a">
+        <div class="unit-body">
+          <h4>Caballería con Arma de Fuego</h4>
+          <p><strong>Unidades:</strong> Carabinero, Dragón. <strong>Fuerte contra:</strong> Caballería de espada. <strong>Débil contra:</strong> Infantería de lanza, Infantería de pólvora. <strong>Se crea en:</strong> Establos. Consumen 2 de población. Menos alcance que la infantería de pólvora pero mucho más rápidas y resistentes.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/marine-icon.png" alt="caballer�a">
+        <div class="unit-body">
+          <h4>Caballería Miscelánea</h4>
+          <p><strong>Unidades:</strong> Elefante de Guerra, Caballería Persa. Elefantes: lentos, resistentes, 2 de población. Caballería Persa: rápida, perforante, ataque a corta distancia.</p>
+        </div>
+      </div>
+
+    </div>
+
+      </div>
+    </div>
+    <div class="section-block">
+      <div class="container">
+
+    <!-- ================================================================ -->
+    <!-- SECCIÓN 2: TANQUES Y ARTILLERÍA -->
+    <!-- ================================================================ -->
+    <div class="section-header"><h2>Tanques y Artillería</h2><p>Fuerza blindada y potencia de fuego — desde catapultas hasta obuses modernos</p></div>
+
+    <h3>Tanques</h3>
+    <div class="unit-grid">
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/ap-tank-icon.png" alt="Tanque AP">
+        <div class="unit-body">
+          <h4>Tanque Perforante (AP)</h4>
+          <p><strong>Unidades:</strong> A7V, Panzer, Leopard. <strong>Fuerte contra:</strong> Tanques, Infantería, Artillería. <strong>Débil contra:</strong> Minotaur Cyber, Anti‑Tanque. <strong>Se crea en:</strong> Fábrica de Tanques. Especialistas en eliminar otros blindados. Prioriza hierro para producirlos.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/he-tank-icon.png" alt="Tanque HE">
+        <div class="unit-body">
+          <h4>Tanque Explosivo (HE)</h4>
+          <p><strong>Unidades:</strong> MkV, Sherman, M1, Gladiator, Centurion. <strong>Fuerte contra:</strong> Infantería, Artillería. <strong>Débil contra:</strong> Minotaur Cyber, Anti‑Tanque. <strong>Se crea en:</strong> Fábrica de Tanques. Diseñados para barrer infantería y unidades ligeras. Menos blindaje que los AP.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/halftrack-icon.png" alt="Tanque AA">
+        <div class="unit-body">
+          <h4>Tanque Anti‑Aéreo</h4>
+          <p><strong>Unidades:</strong> Semioruga Flak, Skywatcher AA. <strong>Fuerte contra:</strong> Unidades aéreas. <strong>Débil contra:</strong> Minotaur Cyber, Anti‑Tanque. <strong>Se crea en:</strong> Fábrica de Tanques. Complemento necesario en ejércitos modernos para protección aérea.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>Artillería y Asedio</h3>
+    <div class="unit-grid">
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/heavy-mortar-icon.png" alt="Artillería Temprana">
+        <div class="unit-body">
+          <h4>Artillería Temprana</h4>
+          <p><strong>Unidades:</strong> Lanzapiedras, Ballesta de Asedio. <strong>Fuerte contra:</strong> Infantería. <strong>Débil contra:</strong> Infantería. <strong>Se crea en:</strong> Fábrica de Asedio. Mantener detrás de la línea para atacar agrupaciones enemigas.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/siege-tower-icon.png" alt="torre de asedio">
+        <div class="unit-body">
+          <h4>Torre de Asedio</h4>
+          <p><strong>Unidades:</strong> Torre de Asedio, Torre de Asedio Pesada. No atacan; permiten a las unidades cruzar muros enemigos. Preferible derribar el muro directamente con catapultas o bombardas.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/heavy-mortar-icon.png" alt="Catapultas">
+        <div class="unit-body">
+          <h4>Catapultas</h4>
+          <p><strong>Unidades:</strong> Catapulta, Trebuchet. <strong>Fuerte contra:</strong> Edificios. <strong>Débil contra:</strong> Infantería. <strong>Se crea en:</strong> Fábrica de Asedio. Alcance suficiente para superar torres. Imprescindibles para asaltar bases.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/ram-icon.png" alt="ariete">
+        <div class="unit-body">
+          <h4>Arietes</h4>
+          <p><strong>Unidades:</strong> Ariete, Ariete Pesado. <strong>Fuerte contra:</strong> Edificios. <strong>Débil contra:</strong> Infantería. <strong>Se crea en:</strong> Fábrica de Asedio. Únicas armas de asedio cuerpo a cuerpo. Blindaje contra torres, pero vulnerables a infantería.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/heavy-mortar-icon.png" alt="Artillería Tardía">
+        <div class="unit-body">
+          <h4>Artillería Tardía</h4>
+          <p><strong>Unidades:</strong> Bombarda, Artillería, Artillería Coloso. <strong>Fuerte contra:</strong> Unidades agrupadas, edificios. <strong>Débil contra:</strong> Tanques, Infantería. <strong>Se crea en:</strong> Fábrica de Asedio. Disparos en parábola, imprecisos contra objetivos móviles. Letales en retaguardia.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/at-gun-icon.png" alt="Cañón Anti-Infantería">
+        <div class="unit-body">
+          <h4>Cañón Anti‑Infantería</h4>
+          <p><strong>Unidades:</strong> Cañón Culverin, Cañón de Bronce. <strong>Fuerte contra:</strong> Infantería. <strong>Débil contra:</strong> Infantería. <strong>Se crea en:</strong> Fábrica de Asedio. Versión más precisa y rápida de la Bombarda, pero con menor área de efecto.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/at-gun-icon.png" alt="Cañón Anti-Tanque">
+        <div class="unit-body">
+          <h4>Cañón Anti‑Tanque</h4>
+          <p><strong>Unidades:</strong> Cañón AT 57mm, 120mm, Thor AT, Hercules AT. <strong>Fuerte contra:</strong> Tanques. <strong>Débil contra:</strong> Infantería. <strong>Se crea en:</strong> Fábrica de Asedio. Complemento ideal para ejércitos que se enfrentan a blindados.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/heavy-mortar-icon.png" alt="Artillería de Demolición">
+        <div class="unit-body">
+          <h4>Artillería de Demolición</h4>
+          <p><strong>Unidades:</strong> Cañón Basilisco, Serpentina, Obús, Cañón Paladín. <strong>Fuerte contra:</strong> Edificios. <strong>Débil contra:</strong> Tanques, Infantería. <strong>Se crea en:</strong> Fábrica de Asedio. Unos pocos pueden arrasar una base enemiga.</p>
+        </div>
+      </div>
+
+    </div>
+
+      </div>
+    </div>
+    <div class="section-block">
+      <div class="container">
+
+    <!-- ================================================================ -->
+    <!-- SECCIÓN 3: NAVALES Y AÉREAS -->
+    <!-- ================================================================ -->
+    <div class="section-header"><h2>Navales y Aéreas</h2><p>Domina los mares y los cielos — superioridad naval y aérea combinada</p></div>
+
+    <h3>Unidades Navales</h3>
+    <div class="unit-grid">
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/fishing-boat-icon.png" alt="Barcos de Pesca y Transporte">
+        <div class="unit-body">
+          <h4>Barcos de Pesca y Transporte</h4>
+          <p><strong>Pesca:</strong> Recolectan comida del mar (50 madera, frágiles). <strong>Transporte:</strong> Mueven tropas a través del agua, incluyendo tanques y cybers que los helicópteros no pueden llevar. Imprescindibles en mapas con agua.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/frigate-icon.png" alt="Fragatas">
+        <div class="unit-body">
+          <h4>Fragatas</h4>
+          <p><strong>Fuerte contra:</strong> Galeras, Submarinos. <strong>Débil contra:</strong> Acorazados. Primeros buques de guerra; los únicos que detectan submarinos (junto con Sea King). Pueden bombardear costa pero con menos eficacia que los acorazados.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/battleship-icon.png" alt="Acorazados">
+        <div class="unit-body">
+          <h4>Acorazados</h4>
+          <p><strong>Fuerte contra:</strong> Fragatas, unidades terrestres, edificios costeros. <strong>Débil contra:</strong> Submarinos, Galeras. Enorme PV y daño. Disparos de largo alcance, pero no pueden alcanzar objetivos en movimiento. Apoyo naval por excelencia.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/galley-icon.png" alt="Galeras/Galeones">
+        <div class="unit-body">
+          <h4>Galeras / Galeones</h4>
+          <p><strong>Fuerte contra:</strong> Acorazados, tierra. <strong>Débil contra:</strong> Fragatas, Submarinos. Quedan obsoletas en la era Atómica. Alta cadencia de fuego con proyectiles incendiarios.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/cruiser-icon.png" alt="Cruceros">
+        <div class="unit-body">
+          <h4>Cruceros (Anti‑Aéreos)</h4>
+          <p><strong>Unidades:</strong> Cañonero, Dardo, Sagitario. <strong>Fuerte contra:</strong> Unidades aéreas. Solo atacan aire. Deben ser protegidos por otros barcos en todo momento.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/submarine-icon.png" alt="submarinos">
+        <div class="unit-body">
+          <h4>Submarinos de Ataque y Nucleares</h4>
+          <p><strong>Ataque (U‑Boot, Nautilus, Hammerhead):</strong> Invisibles excepto para fragatas y Sea Kings. Letales contra todo tipo de barco. <strong>Nucleares (Trident, Triton):</strong> Reemplazan a los acorazados en bombardeo terrestre. Misiles teledirigidos de enorme alcance y daño, pero cadencia muy lenta y no atacan unidades marítimas.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/aircraft-carrier-icon.png" alt="Portaaviones">
+        <div class="unit-body">
+          <h4>Portaaviones</h4>
+          <p><strong>Unidades:</strong> Enterprise, Nexus. Construyen, lanzan y reparan sus propios cazabombarderos sin coste adicional. Vulnerables sin escolta de fragatas y acorazados.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/sea-king-icon.png" alt="Sea King">
+        <div class="unit-body">
+          <h4>Sea King (Helicóptero ASW)</h4>
+          <p>Cazasubmarinos aéreos. Alternativa a las fragatas para detectar y destruir submarinos. Puede operar desde cualquier posición del mapa con combustible infinito.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>Unidades Aéreas</h3>
+    <div class="unit-grid">
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/fighter-bomber-icon.png" alt="Cazabombarderos">
+        <div class="unit-body">
+          <h4>Cazabombarderos</h4>
+          <p><strong>Fuerte contra:</strong> Bombarderos, Helicópteros. <strong>Débil contra:</strong> Cazas, AA. Versátiles: atacan tierra, mar y aire. La columna vertebral de cualquier fuerza aérea desde la WWI hasta la era Nano.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/sopwith-icon.png" alt="Cazas">
+        <div class="unit-body">
+          <h4>Cazas</h4>
+          <p><strong>Fuerte contra:</strong> Unidades aéreas. <strong>Débil contra:</strong> AA. Especialistas en superioridad aérea. Produce muchos solo si el enemigo invierte fuertemente en aviación.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/bomber-icon.png" alt="Bombarderos">
+        <div class="unit-body">
+          <h4>Bombarderos</h4>
+          <p><strong>Fuerte contra:</strong> Tierra, mar, edificios. <strong>Débil contra:</strong> Cazas, AA. Gran daño en área incluso en versiones tempranas (Gotha). Deben regresar a repostar tras cada pasada.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/atomic-bomber-icon.png" alt="Bombarderos Atómicos">
+        <div class="unit-body">
+          <h4>Bombarderos Atómicos</h4>
+          <p><strong>Unidades:</strong> B‑29, B‑52, Titan. Arma más destructiva del juego. Una sola bomba aniquila todo en su radio de explosión. Extremadamente frágiles. Un solo uso por misión.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/typhoon-icon.png" alt="Aviones Anti-Tanque">
+        <div class="unit-body">
+          <h4>Aviones Anti‑Tanque</h4>
+          <p><strong>Unidades:</strong> Typhoon, A‑10. Alternativa a los helicópteros AT, ligeramente más rápidos pero deben repostar. Letales contra blindados enemigos.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/heli-transport-icon.png" alt="Helicóptero Transporte">
+        <div class="unit-body">
+          <h4>Helicóptero Transporte</h4>
+          <p>Rápidos, combustible infinito, solo llevan infantería. Perfectos para incursiones relámpago: carga un escuadrón, arrasa la retaguardia enemiga, retírate antes de que reaccionen.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/helicopter-gunship-icon.png" alt="Helicóptero Gunship">
+        <div class="unit-body">
+          <h4>Helicóptero Gunship</h4>
+          <p>Ametrallan infantería con eficacia. Débiles contra blindados. Combínalos con helicópteros Anti‑Tanque para cubrir todas las amenazas terrestres.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/heli-at-icon.png" alt="Helicóptero Anti-Tanque">
+        <div class="unit-body">
+          <h4>Helicóptero Anti‑Tanque</h4>
+          <p>Misiles contra tanques y edificios. Combínalos con Gunships para escolta. Menor velocidad que los aviones AT pero no necesitan repostar.</p>
+        </div>
+      </div>
+
+    </div>
+
+      </div>
+    </div>
+    <div class="section-block">
+      <div class="container">
+
+    <!-- ================================================================ -->
+    <!-- SECCIÓN 4: ROBÓTICAS, SACERDOTES Y HÉROES -->
+    <!-- ================================================================ -->
+    <div class="section-header"><h2>Robóticas, Sacerdotes y Héroes</h2><p>Unidades especiales y de la era digital — cybers, conversión, profetas y liderazgo</p></div>
+
+    <h3>Unidades Robóticas (Cybers)</h3>
+    <div class="unit-grid">
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/cyber-icon.png" alt="Ares">
+        <div class="unit-body">
+          <h4>Ares</h4>
+          <p>Volador, ataque rápido y débil, autorreparable. Excelente para hostigamiento y exploración avanzada. Consume 2 de población. Ideal para acosar líneas de suministro enemigas.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/hyperion-icon.png" alt="Hyperion">
+        <div class="unit-body">
+          <h4>Hyperion</h4>
+          <p>Camina bajo el agua y sobre acantilados, PV y ataque muy altos. Capacidad de flanqueo sin igual. Consume 2 de población. Perfecto para ataques sorpresa desde ángulos inesperados.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/pandora-icon.png" alt="Pandora">
+        <div class="unit-body">
+          <h4>Pandora</h4>
+          <p>Ataque en área con localización, ideal contra infantería. Consume 2 de población. Su daño en área la hace letal contra agrupaciones de unidades ligeras.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/minotaur-icon.png" alt="Minotaur">
+        <div class="unit-body">
+          <h4>Minotaur</h4>
+          <p>Especialista antitanque. Consume 2 de población. La respuesta definitiva a ejércitos blindados en la era digital. Priorízalo si el enemigo invierte en tanques.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/zeus-icon.png" alt="Zeus">
+        <div class="unit-body">
+          <h4>Zeus</h4>
+          <p>Mayor ataque del juego, cazador de otros cybers. Consume 2 de población. El depredador ápice del campo de batalla digital.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/apollo-icon.png" alt="Apollo">
+        <div class="unit-body">
+          <h4>Apollo (Ultra Cyber)</h4>
+          <p>Vuelan, curan cybers aliados. Escudo de difracción (reduce daño) y Pulso Iónico (aumenta daño recibido por enemigos en área). Soporte imprescindible para ejércitos cyber.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/cyber-icon.png" alt="cyber">
+        <div class="unit-body">
+          <h4>Fury (Ultra Cyber)</h4>
+          <p>Cuerpo a cuerpo con gran daño a edificios. Capacidad de autodestrucción: puede sacrificarse para causar daño masivo en área al ser rodeado.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/tempest-icon.png" alt="Tempest">
+        <div class="unit-body">
+          <h4>Tempest (Ultra Cyber)</h4>
+          <p>Espadas de alta tecnología. Resonador (daño proporcional al ataque enemigo) y Tormenta de Antimateria (huracán controlable contra aire). Versátil y devastador.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/hades-icon.png" alt="Hades">
+        <div class="unit-body">
+          <h4>Hades (Ultra Cyber)</h4>
+          <p>Sin ataque directo. Time Warp (envía una unidad al futuro), Teletransporte y Nano Virus (plaga solo contra cybers). El cyber de utilidad definitivo.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <img class="unit-portrait" src="../assets/img/poseidon-icon.png" alt="Poseidon">
+        <div class="unit-body">
+          <h4>Poseidon (Ultra Cyber)</h4>
+          <p>Viaje submarino, Capa Refractiva (invisibilidad en área) y Asimilación (convierte cybers enemigos). Perfecto para infiltración y guerra asimétrica.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>Sacerdotes, Ciudadanos y Héroes</h3>
+    <div class="unit-grid">
+
+      <div class="unit-card">
+        <div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#u-priest"/></svg></div>
+        <div class="unit-body">
+          <h4>Sacerdotes</h4>
+          <p>Capacidad de convertir unidades enemigas. Lentos pero poderosos. Bloqueados por Universidades cercanas. Prioriza convertirlos antes de que el enemigo construya universidades.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#u-prophet"/></svg></div>
+        <div class="unit-body">
+          <h4>Profetas</h4>
+          <p>Invocan calamidades (Terremoto, Volcán, Tormenta de Fuego, Huracán, Malaria, Peste) tras cargar fe. Ocupan 5 de población. Capaces de cambiar el curso de una partida con una sola calamidad bien colocada.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#u-citizen"/></svg></div>
+        <div class="unit-body">
+          <h4>Ciudadanos</h4>
+          <p>Recolectan recursos, construyen edificios y cazan. Sin capacidad de combate real. La base de toda economía: sin ciudadanos no hay ejército. Mantenlos siempre protegidos.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#u-scout"/></svg></div>
+        <div class="unit-body">
+          <h4>Exploradores</h4>
+          <p><strong>Perros exploradores:</strong> rápidos, terrestres, detección temprana. <strong>Globos aerostáticos y de observación:</strong> vuelo sin ataque, visibilidad elevada. Información es poder: explora constantemente.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#u-hero"/></svg></div>
+        <div class="unit-body">
+          <h4>Héroe Guerrero</h4>
+          <p>Luchan en primera línea y otorgan moral a las tropas cercanas (hasta −50% daño recibido). Solo uno permitido por bando. Colócalo donde más intensos sean los combates.</p>
+        </div>
+      </div>
+
+      <div class="unit-card">
+        <div class="unit-icon-wrap"><svg viewBox="0 0 24 24" class="unit-icon"><use href="#u-hero"/></svg></div>
+        <div class="unit-body">
+          <h4>Héroe Estratega</h4>
+          <p>Curan y desmoralizan enemigos. Se quedan en retaguardia. Combinan bien con médicos para mantener viva a tu infantería de primera línea.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© EEpedia — Basado en la Unit FAQ original de DarthMarth.</p>
+  </footer>
+</body>
+</html>
