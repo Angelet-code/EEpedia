@@ -78,8 +78,8 @@ nav a:hover { color: var(--fg-primary); background: rgba(0,0,0,0.03); }
 /* ===== Hero ===== */
 .hero-wrapper {
   width: 100%;
-  background: var(--bg-card);
-  padding: 72px 0 64px;
+  background: linear-gradient(rgba(14,16,20,0.65), rgba(14,16,20,0.82)), url('img/hero-bg.png') center/cover no-repeat;
+  padding: 88px 0 80px;
   border-bottom: 1px solid var(--border-muted);
 }
 .hero-wrapper .container { 
@@ -96,10 +96,10 @@ nav a:hover { color: var(--fg-primary); background: rgba(0,0,0,0.03); }
   flex-direction: column;
   align-items: center;
 }
-.hero h1 { font-size: 3.6rem; text-align: center; }
-.hero p { color: var(--fg-secondary); font-size: 1.1rem; max-width: 640px; text-align: center; }
-.hero p:last-of-type { font-size: 0.82rem; color: var(--fg-muted); margin-top: 4px; }
-.hero-logo { height: 80px; margin-bottom: 20px; }
+.hero h1 { font-size: 3.6rem; text-align: center; color: #e8eaed; }
+.hero p { color: #bcc0c8; font-size: 1.1rem; max-width: 640px; text-align: center; }
+.hero p:last-of-type { font-size: 0.82rem; color: #7a8290; margin-top: 4px; }
+.hero-logo { height: 80px; margin-bottom: 20px; filter: drop-shadow(0 0 16px rgba(212,168,75,0.35)); }
 
 /* ===== Section header ===== */
 .section-header {
