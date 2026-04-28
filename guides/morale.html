@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EEpedia — Guia completa del sistema de moral de Empire Earth: casas, torres, heroes guerreros y como reducir el dano recibido hasta un 50%.">
+  <title>Guia de Moral — EEpedia</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-brand"><img src="../assets/img/empire-earth-icon.png" class="nav-logo-img" alt="">EEpedia</a>
+    <a href="index.html">Guias</a>
+    <a href="../units/index.html">Unidades</a>
+    <a href="../powers/index.html">Poderes</a>
+    <a href="../glitches/index.html">Glitches</a>
+    <a href="../civilizations.html">Civilizaciones</a>
+    <a href="../calculator.html">Calculadora</a>
+  </nav>
+
+  <div class="container">
+    <div class="hero">
+      <img src="../assets/img/empire-earth-icon.png" alt="EE" class="hero-logo">
+      <h1>Guia de Moral</h1>
+      <p>Como funciona el sistema de moral en Empire Earth y como aprovecharlo para reducir el dano recibido hasta un 50%.</p>
+    </div>
+  </div>
+
+  <div class="sections-wrapper">
+    <div class="section-block"><div class="container">
+      <div class="section-header"><h2>Como funciona la moral</h2><p>El sistema de reduccion de dano mas importante del juego</p></div>
+      <p>Cada punto de moral que tiene una unidad <strong>reduce el dano que recibe de unidades enemigas en aproximadamente un 10%</strong>. Una unidad con 1 punto de moral atacada por un enemigo con 20 de ataque recibe solo 18 de dano. Con 2 puntos recibe 16, con 3 recibe 14, y asi sucesivamente.</p>
+      <p>La moral de una unidad se indica mediante <strong>puntos verdes bajo sus pies</strong>. El numero de puntos verdes indica el numero de puntos de moral, de 1 a 5. Con 5 puntos de moral, la unidad recibe solo el 50% del dano.</p>
+      <p>La moral NO se acumula entre distintas fuentes: si una unidad esta bajo el efecto de varias fuentes de moral, <strong>solo se aplica la mayor</strong>. La moral de casas y la moral del heroe guerrero no se suman.</p>
+    </div></div>
+
+    <div class="section-block"><div class="container">
+      <div class="section-header"><h2>Moral por Casas</h2><p>La fuente principal de moral defensiva</p></div>
+      <p>Construir casas dentro del area de influencia de un Centro Urbano o Capitolio otorga moral a todas las unidades en esa misma area. El area de influencia se ve como una <strong>linea discontinua verde y azul</strong> al seleccionar el edificio.</p>
+
+      <div class="morale-bars">
+        <div class="morale-row"><span class="morale-label">1 Casa</span><span class="morale-value">-10% dano</span><div class="morale-bar-bg"><div class="morale-bar-fill" style="width:20%"></div></div></div>
+        <div class="morale-row"><span class="morale-label">2 Casas (Torneo)</span><span class="morale-value">-20% dano</span><div class="morale-bar-bg"><div class="morale-bar-fill" style="width:40%"></div></div></div>
+        <div class="morale-row"><span class="morale-label">3 Casas</span><span class="morale-value">-30% dano</span><div class="morale-bar-bg"><div class="morale-bar-fill" style="width:60%"></div></div></div>
+        <div class="morale-row"><span class="morale-label">4 Casas (Estandar)</span><span class="morale-value">-40% dano</span><div class="morale-bar-bg"><div class="morale-bar-fill" style="width:80%"></div></div></div>
+      </div>
+
+      <div class="unit-grid" style="margin-top:20px">
+        <div class="unit-card"><div class="unit-body"><h4>Modo Torneo</h4><p>El Centro Urbano soporta un maximo de <strong>2 casas</strong> (2 puntos de moral = -20% dano). El Capitolio soporta hasta <strong>4 casas</strong> (4 puntos = -40% dano).</p></div></div>
+        <div class="unit-card"><div class="unit-body"><h4>Modo Estandar</h4><p>El Centro Urbano soporta un maximo de <strong>4 casas</strong> (4 puntos = -40% dano). El Capitolio soporta hasta <strong>6 casas</strong> (5 puntos = -50% dano).</p></div></div>
+        <div class="unit-card"><div class="unit-body"><h4>Capitolio: area mayor</h4><p>El Capitolio tiene un <strong>area de influencia mas grande</strong> que el Centro Urbano, por lo que afecta a mas unidades. Poblar asentamientos a capitolio no solo duplica recursos: tambien expande tu cobertura de moral.</p></div></div>
+        <div class="unit-card"><div class="unit-body"><h4>Solapamiento</h4><p>Si dos Centros Urbanos o Capitolios tienen areas de influencia que se solapan, las casas contribuyen a ambos, pero <strong>la moral no se acumula</strong> entre edificios.</p></div></div>
+      </div>
+    </div></div>
+
+    <div class="section-block"><div class="container">
+      <div class="section-header"><h2>Torres bajo area de TC</h2><p>Un caso especial de moral defensiva</p></div>
+      <p>Las torres construidas dentro del area de influencia de un Centro Urbano o Capitolio reciben <strong>automaticamente el equivalente a 5 puntos de moral</strong>, lo que reduce el dano que reciben en un 50%. Este bonus se aplica tengas o no casas construidas. Es una de las razones por las que las torres cerca del TC son mucho mas resistentes.</p>
+      <div class="morale-bars">
+        <div class="morale-row"><span class="morale-label">Torre en radio TC</span><span class="morale-value">-50% dano</span><div class="morale-bar-bg"><div class="morale-bar-fill" style="width:100%"></div></div></div>
+      </div>
+    </div></div>
+
+    <div class="section-block"><div class="container">
+      <div class="section-header"><h2>Heroe Guerrero</h2><p>Moral ofensiva para el campo de batalla</p></div>
+      <p>El Heroe Guerrero proporciona <strong>5 puntos de moral</strong> a todas las unidades en un radio de aproximadamente <strong>6 casillas en horizontal y 4 en diagonal</strong>. Esto equivale a una reduccion del 50% del dano recibido. El efecto es el mismo tanto en modo Torneo como Estandar.</p>
+      <div class="unit-grid">
+        <div class="unit-card"><div class="unit-body"><h4>Radio de efecto</h4><p>~6 casillas laterales, ~4 casillas diagonales. Todas las unidades dentro de este radio reciben 5 puntos de moral.</p></div></div>
+        <div class="unit-card"><div class="unit-body"><h4>Un solo heroe</h4><p>Solo puedes tener un heroe a la vez. Si muere, puedes entrenar otro. El heroe estratega NO proporciona moral (cura y desmoraliza enemigos).</p></div></div>
+        <div class="unit-card"><div class="unit-body"><h4>No se acumula con casas</h4><p>Si una unidad esta bajo los efectos de moral de casas (ej. -40%) y tambien bajo el heroe (-50%), solo se aplica la mayor (-50%).</p></div></div>
+      </div>
+      <div class="morale-bars">
+        <div class="morale-row"><span class="morale-label">Heroe Guerrero</span><span class="morale-value">-50% dano</span><div class="morale-bar-bg"><div class="morale-bar-fill" style="width:100%"></div></div></div>
+      </div>
+    </div></div>
+
+    <div class="section-block"><div class="container">
+      <div class="section-header"><h2>Resumen</h2><p>Todas las fuentes de moral en Empire Earth</p></div>
+      <table>
+        <tr><th>Fuente</th><th>Moral maxima</th><th>Reduccion de dano</th><th>Radio</th></tr>
+        <tr><td>Casas (TC, Torneo)</td><td>2 puntos</td><td>-20%</td><td>Area de influencia del TC</td></tr>
+        <tr><td>Casas (TC, Estandar)</td><td>4 puntos</td><td>-40%</td><td>Area de influencia del TC</td></tr>
+        <tr><td>Casas (Capitolio, Torneo)</td><td>4 puntos</td><td>-40%</td><td>Area del Capitolio (mayor)</td></tr>
+        <tr><td>Casas (Capitolio, Estandar)</td><td>5 puntos</td><td>-50%</td><td>Area del Capitolio (mayor)</td></tr>
+        <tr><td>Torre bajo area TC</td><td>5 puntos</td><td>-50%</td><td>Solo la torre</td></tr>
+        <tr><td>Heroe Guerrero</td><td>5 puntos</td><td>-50%</td><td>~6 casillas alrededor</td></tr>
+      </table>
+    </div></div>
+  </div>
+
+  <footer>
+    <p>(c) EEpedia — Basado en la guia de TheShadowDawn en Empire Earth Heaven</p>
+  </footer>
+</body>
+</html>
