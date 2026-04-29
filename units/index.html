@@ -56,7 +56,7 @@
   <div class="sections-wrapper">
     <div class="section-block">
       <div class="container">
-                <div class="section-header"><h2>Guía de Roles Pro</h2><p>Unidades agrupadas por mentalidad competitiva: A-Move, Counters, Power, Raiding y Macro. Cada grupo refleja su función real en el campo de batalla.</p></div>
+                                            <div class="section-header"><h2>Guía de Roles Pro</h2><p>Unidades agrupadas por mentalidad competitiva: A-Move, Counters, Power, Raiding y Macro. Cada grupo refleja su función real en el campo de batalla.</p></div>
 
     <style>
       .macro-section { margin-bottom: 40px; }
@@ -65,6 +65,8 @@
       .macro-title-row h3 { font-size: 1.15rem; margin: 0; padding: 0; border: none; color: var(--fg-primary); }
       .macro-num { font-size: 0.65rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; letter-spacing: 0.05em; }
       .macro-subtitle { font-size: 0.8rem; color: var(--fg-muted); }
+      .building-group { margin-bottom: 20px; }
+      .building-label { font-size: 0.78rem; font-weight: 600; color: var(--fg-muted); margin: 0 0 10px; padding: 0; border: none; text-transform: uppercase; letter-spacing: 0.04em; }
       .role-group-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; justify-content: center; }
       @media (max-width: 1000px) { .role-group-cards { grid-template-columns: repeat(2, 1fr); } }
       @media (max-width: 600px) { .role-group-cards { grid-template-columns: 1fr; } }
@@ -79,10 +81,13 @@
       .role-card.sr-soporte { border-left: 4px solid #3498db; }
       .role-card:hover { box-shadow: var(--shadow-md); }
       .role-card.hidden { display: none; }
-      .role-card-header { margin-bottom: 10px; }
-      .role-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
-      .role-card-top h4 { font-size: 0.9rem; margin: 0; padding: 0; border: none; color: var(--fg-primary); font-weight: 700; }
-      .role-card-meta { margin-bottom: 8px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+      .role-card-header {  }
+      .role-card-top { display: flex; gap: 14px; align-items: flex-start; }
+      .role-card-body { flex: 1; min-width: 0; }
+      .role-card-body h4 { font-size: 0.9rem; margin: 0 0 4px; padding: 0; border: none; color: var(--fg-primary); font-weight: 700; }
+      .role-card-icon { width: 48px; height: 48px; object-fit: contain; border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+      .role-card-sub { margin-bottom: 6px; }
+      .role-card-meta { margin-bottom: 6px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
       .role-meta-item { font-size: 0.72rem; color: var(--fg-muted); font-weight: 500; }
       .role-pro-badge { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 100px; background: rgba(255,105,0,0.08); color: var(--accent); white-space: nowrap; }
       .subrole-badge { font-size: 0.58rem; font-weight: 700; padding: 2px 8px; border-radius: 100px; white-space: nowrap; }
@@ -94,21 +99,17 @@
       .subrole-badge.sr-raid { background: rgba(155,89,182,0.1); color: #8e44ad; }
       .subrole-badge.sr-soporte { background: rgba(52,152,219,0.1); color: #2980b9; }
       .strategy-icon { font-size: 0.75rem; cursor: help; }
-      .role-card-stats { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+      .role-card-stats { display: flex; flex-direction: column; gap: 2px; margin-bottom: 4px; }
       .role-stat { font-size: 0.76rem; font-weight: 500; }
       .role-stat.strong { color: #2e7d32; }
       .role-stat.weak { color: #c62828; }
       .role-card-howto { font-size: 0.76rem; color: var(--fg-secondary); margin: 0; line-height: 1.45; }
-      .role-card-protip { font-size: 0.7rem; color: var(--accent); margin: 6px 0 0; padding: 6px 10px; background: rgba(255,105,0,0.04); border-radius: 6px; line-height: 1.4; }
-      .role-card .role-table { width: 100%; border-collapse: collapse; font-size: 0.76rem; margin: 0; }
-      .role-card .role-table th { text-align: left; padding: 5px 8px; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--fg-muted); border-bottom: 1px solid var(--border-visible); }
-      .role-card .role-table td { padding: 5px 8px; border-bottom: 1px solid var(--border-subtle); color: var(--fg-secondary); }
-      .role-card .role-table tr:last-child td { border-bottom: none; }
-      .role-card .role-table td:last-child { color: var(--fg-muted); font-size: 0.7rem; white-space: nowrap; }
-      .role-card .role-table .td-icon { width: 48px; padding: 3px 4px; text-align: center; }
-      .role-card .role-table .td-icon img { width: 40px; height: 40px; object-fit: contain; vertical-align: middle; border-radius: 3px; }
-      .role-card .role-table .th-icon { width: 48px; }
-      .role-table tr.hidden { display: none; }
+      .macro-protip { font-size: 0.76rem; color: var(--accent); margin: 0 0 16px; padding: 8px 14px; background: rgba(255,105,0,0.04); border-radius: 6px; border-left: 3px solid var(--accent); }
+      .evo-nav { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-subtle); }
+      .evo-btn { background: none; border: 1px solid var(--border-visible); border-radius: 100px; padding: 3px 11px; font-size: 0.68rem; cursor: pointer; color: var(--fg-secondary); font-family: inherit; transition: all 0.15s; }
+      .evo-btn:hover:not(:disabled) { background: var(--accent); color: #fff; border-color: var(--accent); }
+      .evo-btn:disabled { opacity: 0.25; cursor: default; }
+      .evo-pos { font-size: 0.65rem; color: var(--fg-muted); min-width: 30px; text-align: center; }
       .epoch-filter { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
       .epoch-filter label { font-size: 0.78rem; font-weight: 600; color: var(--fg-primary); }
       .epoch-select { padding: 6px 10px; border-radius: 100px; border: 1px solid var(--border-visible); font-size: 0.8rem; font-weight: 600; color: var(--fg-primary); background: var(--bg-card); cursor: pointer; font-family: 'Inter', sans-serif; min-width: 110px; }
@@ -154,349 +155,318 @@
           <span class="macro-subtitle">— Fuerza Bruta Principal</span>
         </div>
       </div>
+      
       <div class="role-group-cards">
-              <div class="role-card g1 sr-tanque" id="role-card-0">
-        <div class="role-card-header">
+              <div class="role-card g1 sr-tanque" id="role-card-0"
+         data-chain='[{"n": "Garrotero", "e": "I - II", "s": 1, "d": 2, "i": "shock-icon.png", "bc": "epoch-ancient"}, {"n": "Macero", "e": "III - IV", "s": 3, "d": 4, "i": "shock-icon.png", "bc": "epoch-ancient"}, {"n": "Espada corta", "e": "V", "s": 5, "d": 5, "i": "shock-icon.png", "bc": "epoch-ancient"}, {"n": "Espada ancha", "e": "VI", "s": 6, "d": 6, "i": "shock-icon.png", "bc": "epoch-ancient"}, {"n": "Espada larga", "e": "VII", "s": 7, "d": 7, "i": "shock-icon.png", "bc": "epoch-gunpowder"}, {"n": "Espada larga imperial", "e": "VIII", "s": 8, "d": 8, "i": "shock-icon.png", "bc": "epoch-gunpowder"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-tanque">TANQUE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-tanque">TANQUE</span>
-            <h4>Rama de Garrotero</h4>
-            <span class="epoch-badge epoch-mixed">I – VIII</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Arqueros, lanza-rocas.</span>
-            <span class="role-stat weak">Débil contra Lanceros, caballería.</span>
-          </div>
-          <p class="role-card-howto">💡 Escudo humano para tiradores.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Garrotero</td><td>I - II</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Macero</td><td>III - IV</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Espada corta</td><td>V</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Espada ancha</td><td>VI</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Espada larga</td><td>VII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Espada larga imperial</td><td>VIII</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Garrotero</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">I - II</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Arqueros, lanza-rocas.</span>
+                 <span class="role-stat weak">Débil contra Lanceros, caballería.</span>
+               </div>
+               <p class="role-card-howto">💡 Escudo humano para tiradores.</p>
+             </div>
+             <img src="../assets/img/shock-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/6</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
       <div class="role-card g1 sr-tanque" id="role-card-1">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-tanque">TANQUE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-tanque">TANQUE</span>
-            <h4>Elefante de guerra</h4>
-            <span class="epoch-badge epoch-ancient">II – VI</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Establo</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería, edificios.</span>
-            <span class="role-stat weak">Débil contra Piqueros, fuego concentrado.</span>
-          </div>
-          <p class="role-card-howto">💡 Punta de lanza.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/minotaur-icon.png" alt=""></td><td>Elefante de guerra</td><td>II - VI</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Elefante de guerra</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">II - VI</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Establo</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería, edificios.</span>
+                 <span class="role-stat weak">Débil contra Piqueros, fuego concentrado.</span>
+               </div>
+               <p class="role-card-howto">💡 Punta de lanza.</p>
+             </div>
+             <img src="../assets/img/minotaur-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g1 sr-dps-rango" id="role-card-2">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-dps-rango">DPS RANGO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-dps-rango">DPS RANGO</span>
-            <h4>Lanza-rocas</h4>
-            <span class="epoch-badge epoch-ancient">I – II</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Garroteros.</span>
-            <span class="role-stat weak">Débil contra Caballería.</span>
-          </div>
-          <p class="role-card-howto">💡 Golpear y retroceder.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Lanza-rocas</td><td>I - II</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Lanza-rocas</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">I - II</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Garroteros.</span>
+                 <span class="role-stat weak">Débil contra Caballería.</span>
+               </div>
+               <p class="role-card-howto">💡 Golpear y retroceder.</p>
+             </div>
+             <img src="../assets/img/shock-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g1 sr-dps-rango" id="role-card-3">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-dps-rango">DPS RANGO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-dps-rango">DPS RANGO</span>
-            <h4>Hondero</h4>
-            <span class="epoch-badge epoch-ancient">I – III</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Campo de tiro con arco</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Lanza-rocas, garroteros.</span>
-            <span class="role-stat weak">Débil contra Caballería.</span>
-          </div>
-          <p class="role-card-howto">💡 Hostigamiento masivo.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/archer-icon.png" alt=""></td><td>Hondero</td><td>I - III</td></tr>
-        </table>
-      </div>
-      <div class="role-card g1 sr-dps-rango" id="role-card-4">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Hondero</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">I - III</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Campo de tiro con arco</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Lanza-rocas, garroteros.</span>
+                 <span class="role-stat weak">Débil contra Caballería.</span>
+               </div>
+               <p class="role-card-howto">💡 Hostigamiento masivo.</p>
+             </div>
+             <img src="../assets/img/archer-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
+      <div class="role-card g1 sr-dps-rango" id="role-card-4"
+         data-chain='[{"n": "Arquero", "e": "III", "s": 3, "d": 3, "i": "archer-icon.png", "bc": "epoch-ancient"}, {"n": "Arquero de arco largo", "e": "IV", "s": 4, "d": 4, "i": "archer-icon.png", "bc": "epoch-ancient"}, {"n": "Ballestero", "e": "V - VI", "s": 5, "d": 6, "i": "archer-icon.png", "bc": "epoch-ancient"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-dps-rango">DPS RANGO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-dps-rango">DPS RANGO</span>
-            <h4>Rama de Arquero</h4>
-            <span class="epoch-badge epoch-ancient">III – VI</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Campo de tiro con arco</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería de perforación.</span>
-            <span class="role-stat weak">Débil contra Caballería.</span>
-          </div>
-          <p class="role-card-howto">💡 Masa detrás de la infantería.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/archer-icon.png" alt=""></td><td>Arquero</td><td>III</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/archer-icon.png" alt=""></td><td>Arquero de arco largo</td><td>IV</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/archer-icon.png" alt=""></td><td>Ballestero</td><td>V - VI</td></tr>
-        </table>
-      </div>
-      <div class="role-card g1 sr-dps-rango" id="role-card-5">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Arquero</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">III</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Campo de tiro con arco</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería de perforación.</span>
+                 <span class="role-stat weak">Débil contra Caballería.</span>
+               </div>
+               <p class="role-card-howto">💡 Masa detrás de la infantería.</p>
+             </div>
+             <img src="../assets/img/archer-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/3</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
+      <div class="role-card g1 sr-dps-rango" id="role-card-5"
+         data-chain='[{"n": "Arcabucero", "e": "VII", "s": 7, "d": 7, "i": "field-cannon-icon.png", "bc": "epoch-gunpowder"}, {"n": "Mosquetero", "e": "VIII", "s": 8, "d": 8, "i": "field-cannon-icon.png", "bc": "epoch-gunpowder"}, {"n": "Granadero", "e": "IX", "s": 9, "d": 9, "i": "grenade-launcher-icon.png", "bc": "epoch-gunpowder"}, {"n": "Soldado de infantería", "e": "X", "s": 10, "d": 10, "i": "doughboy-icon.png", "bc": "epoch-modern"}, {"n": "Marine", "e": "XI - XII", "s": 11, "d": 12, "i": "marine-icon.png", "bc": "epoch-modern"}, {"n": "Centinela", "e": "XIII", "s": 13, "d": 13, "i": "marine-icon.png", "bc": "epoch-future"}, {"n": "Guardián", "e": "XIV", "s": 14, "d": 14, "i": "marine-icon.png", "bc": "epoch-future"}, {"n": "Vigilante", "e": "XV", "s": 15, "d": 15, "i": "marine-icon.png", "bc": "epoch-future"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-dps-rango">DPS RANGO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-dps-rango">DPS RANGO</span>
-            <h4>Rama de Arcabucero</h4>
-            <span class="epoch-badge epoch-mixed">VII – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Alabarderos.</span>
-            <span class="role-stat weak">Débil contra Caballería, artillería.</span>
-          </div>
-          <p class="role-card-howto">💡 Líneas de fuego.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/field-cannon-icon.png" alt=""></td><td>Arcabucero</td><td>VII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/field-cannon-icon.png" alt=""></td><td>Mosquetero</td><td>VIII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/grenade-launcher-icon.png" alt=""></td><td>Granadero</td><td>IX</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/doughboy-icon.png" alt=""></td><td>Soldado de infantería</td><td>X</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/marine-icon.png" alt=""></td><td>Marine</td><td>XI - XII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/marine-icon.png" alt=""></td><td>Centinela</td><td>XIII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/marine-icon.png" alt=""></td><td>Guardián</td><td>XIV</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/marine-icon.png" alt=""></td><td>Vigilante</td><td>XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Arcabucero</h4>
+               <span class="epoch-badge epoch-gunpowder" data-role="evo-epoch">VII</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Alabarderos.</span>
+                 <span class="role-stat weak">Débil contra Caballería, artillería.</span>
+               </div>
+               <p class="role-card-howto">💡 Líneas de fuego.</p>
+             </div>
+             <img src="../assets/img/field-cannon-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/8</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
       <div class="role-card g1 sr-dps-melee" id="role-card-6">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-dps-melee">DPS MELEE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-dps-melee">DPS MELEE</span>
-            <h4>Guardia de élite</h4>
-            <span class="epoch-badge epoch-gunpowder">VIII – IX</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería.</span>
-            <span class="role-stat weak">Débil contra Artillería, dragones.</span>
-          </div>
-          <p class="role-card-howto">💡 Núcleo de avance.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/marine-icon.png" alt=""></td><td>Guardia de élite</td><td>VIII - IX</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Guardia de élite</h4>
+               <span class="epoch-badge epoch-gunpowder" data-role="evo-epoch">VIII - IX</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería.</span>
+                 <span class="role-stat weak">Débil contra Artillería, dragones.</span>
+               </div>
+               <p class="role-card-howto">💡 Núcleo de avance.</p>
+             </div>
+             <img src="../assets/img/marine-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g1 sr-dps-melee" id="role-card-7">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-dps-melee">DPS MELEE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-dps-melee">DPS MELEE</span>
-            <h4>Ametralladora</h4>
-            <span class="epoch-badge epoch-modern">X – XII</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería agrupada.</span>
-            <span class="role-stat weak">Débil contra Tanques, francotiradores.</span>
-          </div>
-          <p class="role-card-howto">💡 Posición estática, defensa.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/machine-gunner-icon.png" alt=""></td><td>Ametralladora</td><td>X - XII</td></tr>
-        </table>
-      </div>
-      <div class="role-card g1 sr-tanque" id="role-card-8">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Ametralladora</h4>
+               <span class="epoch-badge epoch-modern" data-role="evo-epoch">X - XII</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería agrupada.</span>
+                 <span class="role-stat weak">Débil contra Tanques, francotiradores.</span>
+               </div>
+               <p class="role-card-howto">💡 Posición estática, defensa.</p>
+             </div>
+             <img src="../assets/img/machine-gunner-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
+      <div class="role-card g1 sr-tanque" id="role-card-8"
+         data-chain='[{"n": "Tanque IGM", "e": "X", "s": 10, "d": 10, "i": "he-tank-icon.png", "bc": "epoch-modern"}, {"n": "Tanque medio", "e": "XI", "s": 11, "d": 11, "i": "he-tank-icon.png", "bc": "epoch-modern"}, {"n": "Tanque pesado", "e": "XII", "s": 12, "d": 12, "i": "he-tank-icon.png", "bc": "epoch-modern"}, {"n": "Tanque Centurión", "e": "XIV - XV", "s": 14, "d": 15, "i": "centurion-icon.png", "bc": "epoch-future"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-tanque">TANQUE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-tanque">TANQUE</span>
-            <h4>Rama de Tanque IGM</h4>
-            <span class="epoch-badge epoch-mixed">X – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Fábrica de tanques</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería.</span>
-            <span class="role-stat weak">Débil contra Cañones antitanque.</span>
-          </div>
-          <p class="role-card-howto">💡 Punta de lanza.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/he-tank-icon.png" alt=""></td><td>Tanque IGM</td><td>X</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/he-tank-icon.png" alt=""></td><td>Tanque medio</td><td>XI</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/he-tank-icon.png" alt=""></td><td>Tanque pesado</td><td>XII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/centurion-icon.png" alt=""></td><td>Tanque Centurión</td><td>XIV - XV</td></tr>
-        </table>
-      </div>
-      <div class="role-card g1 sr-tanque" id="role-card-9">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Tanque IGM</h4>
+               <span class="epoch-badge epoch-modern" data-role="evo-epoch">X</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Fábrica de tanques</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería.</span>
+                 <span class="role-stat weak">Débil contra Cañones antitanque.</span>
+               </div>
+               <p class="role-card-howto">💡 Punta de lanza.</p>
+             </div>
+             <img src="../assets/img/he-tank-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/4</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
+      <div class="role-card g1 sr-tanque" id="role-card-9"
+         data-chain='[{"n": "Balsa", "e": "I - II", "s": 1, "d": 2, "i": "galley-icon.png", "bc": "epoch-ancient"}, {"n": "Galera", "e": "III - VI", "s": 3, "d": 6, "i": "galley-icon.png", "bc": "epoch-ancient"}, {"n": "Fragata", "e": "VII - IX", "s": 7, "d": 9, "i": "frigate-icon.png", "bc": "epoch-gunpowder"}, {"n": "Crucero / Acorazado", "e": "X - XII", "s": 10, "d": 12, "i": "battleship-icon.png", "bc": "epoch-modern"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-tanque">TANQUE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-tanque">TANQUE</span>
-            <h4>Rama de Balsa</h4>
-            <span class="epoch-badge epoch-mixed">I – XII</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Astillero</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Barcos de pesca.</span>
-            <span class="role-stat weak">Débil contra Galeras.</span>
-          </div>
-          <p class="role-card-howto">💡 Ataque costero.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/galley-icon.png" alt=""></td><td>Balsa</td><td>I - II</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/galley-icon.png" alt=""></td><td>Galera</td><td>III - VI</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/frigate-icon.png" alt=""></td><td>Fragata</td><td>VII - IX</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/battleship-icon.png" alt=""></td><td>Crucero / Acorazado</td><td>X - XII</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Balsa</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">I - II</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Astillero</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Barcos de pesca.</span>
+                 <span class="role-stat weak">Débil contra Galeras.</span>
+               </div>
+               <p class="role-card-howto">💡 Ataque costero.</p>
+             </div>
+             <img src="../assets/img/galley-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/4</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
       <div class="role-card g1 sr-tanque" id="role-card-10">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-tanque">TANQUE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-tanque">TANQUE</span>
-            <h4>Nano-Cíborg</h4>
-            <span class="epoch-badge epoch-future">XIII – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Laboratorio Cíber</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería.</span>
-            <span class="role-stat weak">Débil contra Mechs pesados.</span>
-          </div>
-          <p class="role-card-howto">💡 Ruptura de líneas.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/cyber-icon.png" alt=""></td><td>Nano-Cíborg</td><td>XIII - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Nano-Cíborg</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XIII - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Laboratorio Cíber</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería.</span>
+                 <span class="role-stat weak">Débil contra Mechs pesados.</span>
+               </div>
+               <p class="role-card-howto">💡 Ruptura de líneas.</p>
+             </div>
+             <img src="../assets/img/cyber-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g1 sr-tanque" id="role-card-11">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-tanque">TANQUE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-tanque">TANQUE</span>
-            <h4>Ares / Minotauro</h4>
-            <span class="epoch-badge epoch-future">XIII – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Laboratorio Cíber</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería, vehículos.</span>
-            <span class="role-stat weak">Débil contra Helicópteros, artillería.</span>
-          </div>
-          <p class="role-card-howto">💡 Punta de lanza.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/minotaur-icon.png" alt=""></td><td>Ares / Minotauro</td><td>XIII - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Ares / Minotauro</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XIII - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Laboratorio Cíber</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería, vehículos.</span>
+                 <span class="role-stat weak">Débil contra Helicópteros, artillería.</span>
+               </div>
+               <p class="role-card-howto">💡 Punta de lanza.</p>
+             </div>
+             <img src="../assets/img/minotaur-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g1 sr-tanque" id="role-card-12">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-tanque">TANQUE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-tanque">TANQUE</span>
-            <h4>Zeus</h4>
-            <span class="epoch-badge epoch-future">XV – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Laboratorio Cíber</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Todo tipo de tropas.</span>
-            <span class="role-stat weak">Débil contra Fuego masivo concentrado.</span>
-          </div>
-          <p class="role-card-howto">💡 Liderazgo ofensivo.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/zeus-icon.png" alt=""></td><td>Zeus</td><td>XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Zeus</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Laboratorio Cíber</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Todo tipo de tropas.</span>
+                 <span class="role-stat weak">Débil contra Fuego masivo concentrado.</span>
+               </div>
+               <p class="role-card-howto">💡 Liderazgo ofensivo.</p>
+             </div>
+             <img src="../assets/img/zeus-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g1 sr-tanque" id="role-card-13">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-tanque">TANQUE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-tanque">TANQUE</span>
-            <h4>Tritón / Sea King</h4>
-            <span class="epoch-badge epoch-future">XIII – XIV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Astillero</span>
-            <span class="role-pro-badge">Atajo 1 — Clic y avanzar</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Buques menores.</span>
-            <span class="role-stat weak">Débil contra Submarinos de energía.</span>
-          </div>
-          <p class="role-card-howto">💡 Dominio naval.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/sea-king-icon.png" alt=""></td><td>Tritón / Sea King</td><td>XIII - XIV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Tritón / Sea King</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XIII - XIV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Astillero</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Buques menores.</span>
+                 <span class="role-stat weak">Débil contra Submarinos de energía.</span>
+               </div>
+               <p class="role-card-howto">💡 Dominio naval.</p>
+             </div>
+             <img src="../assets/img/sea-king-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       </div>
     </div>
 
@@ -508,179 +478,184 @@
           <span class="macro-subtitle">— Respuesta de Emergencia</span>
         </div>
       </div>
+      
       <div class="role-group-cards">
-              <div class="role-card g2 sr-counter" id="role-card-14">
-        <div class="role-card-header">
+              <div class="role-card g2 sr-counter" id="role-card-14"
+         data-chain='[{"n": "Lancero", "e": "III", "s": 3, "d": 3, "i": "spear-icon.png", "bc": "epoch-ancient"}, {"n": "Falange", "e": "IV", "s": 4, "d": 4, "i": "spear-icon.png", "bc": "epoch-ancient"}, {"n": "Piquero", "e": "V - VI", "s": 5, "d": 6, "i": "spear-icon.png", "bc": "epoch-ancient"}, {"n": "Alabardero", "e": "VII", "s": 7, "d": 7, "i": "spear-icon.png", "bc": "epoch-gunpowder"}, {"n": "Alabardero imperial", "e": "VIII", "s": 8, "d": 8, "i": "spear-icon.png", "bc": "epoch-gunpowder"}, {"n": "Partisano", "e": "IX", "s": 9, "d": 9, "i": "partisan-icon.png", "bc": "epoch-gunpowder"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-counter">COUNTER</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-counter">COUNTER</span>
-            <h4>Rama de Lancero</h4>
-            <span class="epoch-badge epoch-mixed">III – IX</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Defensivo — Counter específico</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Caballería, espadachines.</span>
-            <span class="role-stat weak">Débil contra Arqueros.</span>
-          </div>
-          <p class="role-card-howto">💡 Intercalados con arqueros.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/spear-icon.png" alt=""></td><td>Lancero</td><td>III</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/spear-icon.png" alt=""></td><td>Falange</td><td>IV</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/spear-icon.png" alt=""></td><td>Piquero</td><td>V - VI</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/spear-icon.png" alt=""></td><td>Alabardero</td><td>VII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/spear-icon.png" alt=""></td><td>Alabardero imperial</td><td>VIII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/partisan-icon.png" alt=""></td><td>Partisano</td><td>IX</td></tr>
-        </table>
-      </div>
-      <div class="role-card g2 sr-counter" id="role-card-15">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Lancero</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">III</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Caballería, espadachines.</span>
+                 <span class="role-stat weak">Débil contra Arqueros.</span>
+               </div>
+               <p class="role-card-howto">💡 Intercalados con arqueros.</p>
+             </div>
+             <img src="../assets/img/spear-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/6</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
+      <div class="role-card g2 sr-counter" id="role-card-15"
+         data-chain='[{"n": "Jinete en camello", "e": "III - IV", "s": 3, "d": 4, "i": "shock-icon.png", "bc": "epoch-ancient"}, {"n": "Jinete en camello pesado", "e": "V - VI", "s": 5, "d": 6, "i": "shock-icon.png", "bc": "epoch-ancient"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-counter">COUNTER</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-counter">COUNTER</span>
-            <h4>Rama de Jinete en camello</h4>
-            <span class="epoch-badge epoch-ancient">III – VI</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Establo</span>
-            <span class="role-pro-badge">Defensivo — Counter específico</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Caballería de choque.</span>
-            <span class="role-stat weak">Débil contra Arqueros, infantería.</span>
-          </div>
-          <p class="role-card-howto">💡 Intercepción rápida.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Jinete en camello</td><td>III - IV</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Jinete en camello pesado</td><td>V - VI</td></tr>
-        </table>
-      </div>
-      <div class="role-card g2 sr-counter" id="role-card-16">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Jinete en camello</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">III - IV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Establo</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Caballería de choque.</span>
+                 <span class="role-stat weak">Débil contra Arqueros, infantería.</span>
+               </div>
+               <p class="role-card-howto">💡 Intercepción rápida.</p>
+             </div>
+             <img src="../assets/img/shock-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/2</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
+      <div class="role-card g2 sr-counter" id="role-card-16"
+         data-chain='[{"n": "Cañón antitanque", "e": "X - XII", "s": 10, "d": 12, "i": "at-gun-icon.png", "bc": "epoch-modern"}, {"n": "Halftrack Antitanque", "e": "XI - XV", "s": 11, "d": 15, "i": "halftrack-icon.png", "bc": "epoch-mixed"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-counter">COUNTER</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-counter">COUNTER</span>
-            <h4>Rama de Cañón antitanque</h4>
-            <span class="epoch-badge epoch-mixed">X – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Fábrica de vehículos</span>
-            <span class="role-pro-badge">Defensivo — Counter específico</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Tanques.</span>
-            <span class="role-stat weak">Débil contra Infantería.</span>
-          </div>
-          <p class="role-card-howto">💡 Mantener tras la línea.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/at-gun-icon.png" alt=""></td><td>Cañón antitanque</td><td>X - XII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/halftrack-icon.png" alt=""></td><td>Halftrack Antitanque</td><td>XI - XV</td></tr>
-        </table>
-      </div>
-      <div class="role-card g2 sr-counter" id="role-card-17">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Cañón antitanque</h4>
+               <span class="epoch-badge epoch-modern" data-role="evo-epoch">X - XII</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Fábrica de vehículos</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Tanques.</span>
+                 <span class="role-stat weak">Débil contra Infantería.</span>
+               </div>
+               <p class="role-card-howto">💡 Mantener tras la línea.</p>
+             </div>
+             <img src="../assets/img/at-gun-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/2</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
+      <div class="role-card g2 sr-counter" id="role-card-17"
+         data-chain='[{"n": "Lanzagranadas", "e": "X", "s": 10, "d": 10, "i": "grenade-launcher-icon.png", "bc": "epoch-modern"}, {"n": "Bazuca", "e": "XI - XII", "s": 11, "d": 12, "i": "bazooka-icon.png", "bc": "epoch-modern"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-counter">COUNTER</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-counter">COUNTER</span>
-            <h4>Rama de Lanzagranadas</h4>
-            <span class="epoch-badge epoch-modern">X – XII</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Defensivo — Counter específico</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Blindados ligeros.</span>
-            <span class="role-stat weak">Débil contra Ametralladoras.</span>
-          </div>
-          <p class="role-card-howto">💡 En masa.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/grenade-launcher-icon.png" alt=""></td><td>Lanzagranadas</td><td>X</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/bazooka-icon.png" alt=""></td><td>Bazuca</td><td>XI - XII</td></tr>
-        </table>
-      </div>
-      <div class="role-card g2 sr-counter" id="role-card-18">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Lanzagranadas</h4>
+               <span class="epoch-badge epoch-modern" data-role="evo-epoch">X</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Blindados ligeros.</span>
+                 <span class="role-stat weak">Débil contra Ametralladoras.</span>
+               </div>
+               <p class="role-card-howto">💡 En masa.</p>
+             </div>
+             <img src="../assets/img/grenade-launcher-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/2</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
+      <div class="role-card g2 sr-counter" id="role-card-18"
+         data-chain='[{"n": "Cañón AA", "e": "X - XI", "s": 10, "d": 11, "i": "skywatcher-icon.png", "bc": "epoch-modern"}, {"n": "AA Skywatcher", "e": "XIV - XV", "s": 14, "d": 15, "i": "skywatcher-icon.png", "bc": "epoch-future"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-counter">COUNTER</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-counter">COUNTER</span>
-            <h4>Rama de Cañón AA</h4>
-            <span class="epoch-badge epoch-mixed">X – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Fábrica de vehículos</span>
-            <span class="role-pro-badge">Defensivo — Counter específico</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Aviones.</span>
-            <span class="role-stat weak">Débil contra Tanques.</span>
-          </div>
-          <p class="role-card-howto">💡 Distribuir por la base.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/skywatcher-icon.png" alt=""></td><td>Cañón AA</td><td>X - XI</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/skywatcher-icon.png" alt=""></td><td>AA Skywatcher</td><td>XIV - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Cañón AA</h4>
+               <span class="epoch-badge epoch-modern" data-role="evo-epoch">X - XI</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Fábrica de vehículos</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Aviones.</span>
+                 <span class="role-stat weak">Débil contra Tanques.</span>
+               </div>
+               <p class="role-card-howto">💡 Distribuir por la base.</p>
+             </div>
+             <img src="../assets/img/skywatcher-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/2</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
       <div class="role-card g2 sr-counter" id="role-card-19">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-counter">COUNTER</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-counter">COUNTER</span>
-            <h4>Soldado Stinger</h4>
-            <span class="epoch-badge epoch-mixed">XI – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Defensivo — Counter específico</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Aviones.</span>
-            <span class="role-stat weak">Débil contra Ataque terrestre.</span>
-          </div>
-          <p class="role-card-howto">💡 Mezclado entre infantería.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/stinger-soldier-icon.png" alt=""></td><td>Soldado Stinger</td><td>XI - XV</td></tr>
-        </table>
-      </div>
-      <div class="role-card g2 sr-counter" id="role-card-20">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Soldado Stinger</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">XI - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Aviones.</span>
+                 <span class="role-stat weak">Débil contra Ataque terrestre.</span>
+               </div>
+               <p class="role-card-howto">💡 Mezclado entre infantería.</p>
+             </div>
+             <img src="../assets/img/stinger-soldier-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
+      <div class="role-card g2 sr-counter" id="role-card-20"
+         data-chain='[{"n": "Caza interceptor", "e": "X - XII", "s": 10, "d": 12, "i": "fighter-icon.png", "bc": "epoch-modern"}, {"n": "Caza reactor", "e": "XIII", "s": 13, "d": 13, "i": "fighter-icon.png", "bc": "epoch-future"}, {"n": "Caza de energía", "e": "XIV", "s": 14, "d": 14, "i": "fighter-icon.png", "bc": "epoch-future"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-counter">COUNTER</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-counter">COUNTER</span>
-            <h4>Rama de Caza interceptor</h4>
-            <span class="epoch-badge epoch-mixed">X – XIV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Aeropuerto</span>
-            <span class="role-pro-badge">Defensivo — Counter específico</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Aviones.</span>
-            <span class="role-stat weak">Débil contra Cañones AA.</span>
-          </div>
-          <p class="role-card-howto">💡 Patrullas.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/fighter-icon.png" alt=""></td><td>Caza interceptor</td><td>X - XII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/fighter-icon.png" alt=""></td><td>Caza reactor</td><td>XIII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/fighter-icon.png" alt=""></td><td>Caza de energía</td><td>XIV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Caza interceptor</h4>
+               <span class="epoch-badge epoch-modern" data-role="evo-epoch">X - XII</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Aeropuerto</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Aviones.</span>
+                 <span class="role-stat weak">Débil contra Cañones AA.</span>
+               </div>
+               <p class="role-card-howto">💡 Patrullas.</p>
+             </div>
+             <img src="../assets/img/fighter-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/3</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
       </div>
     </div>
 
@@ -692,341 +667,312 @@
           <span class="macro-subtitle">— Condiciones de Victoria</span>
         </div>
       </div>
+      <p class="macro-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
       <div class="role-group-cards">
               <div class="role-card g3 sr-asedio" id="role-card-21">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Sansón</h4>
-            <span class="epoch-badge epoch-ancient">II – IV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Edificios y murallas.</span>
-            <span class="role-stat weak">Débil contra Arqueros e infantería.</span>
-          </div>
-          <p class="role-card-howto">💡 Acércalos con escolta a la base enemiga.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/siege-tower-icon.png" alt=""></td><td>Sansón</td><td>II - IV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Sansón</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">II - IV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Edificios y murallas.</span>
+                 <span class="role-stat weak">Débil contra Arqueros e infantería.</span>
+               </div>
+               <p class="role-card-howto">💡 Acércalos con escolta a la base enemiga.</p>
+             </div>
+             <img src="../assets/img/siege-tower-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g3 sr-asedio" id="role-card-22">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Ariete</h4>
-            <span class="epoch-badge epoch-ancient">III – V</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Fábrica de armas de asedio</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Edificios y murallas.</span>
-            <span class="role-stat weak">Débil contra Infantería y caballería.</span>
-          </div>
-          <p class="role-card-howto">💡 Acércalos con escolta a la base.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/ram-icon.png" alt=""></td><td>Ariete</td><td>III - V</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Ariete</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">III - V</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Fábrica de armas de asedio</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Edificios y murallas.</span>
+                 <span class="role-stat weak">Débil contra Infantería y caballería.</span>
+               </div>
+               <p class="role-card-howto">💡 Acércalos con escolta a la base.</p>
+             </div>
+             <img src="../assets/img/ram-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g3 sr-asedio" id="role-card-23">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Torre de asedio</h4>
-            <span class="epoch-badge epoch-ancient">IV – VI</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Fábrica de armas de asedio</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Edificios y murallas.</span>
-            <span class="role-stat weak">Débil contra Caballería, catapultas.</span>
-          </div>
-          <p class="role-card-howto">💡 Transportar infantería.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/siege-tower-icon.png" alt=""></td><td>Torre de asedio</td><td>IV - VI</td></tr>
-        </table>
-      </div>
-      <div class="role-card g3 sr-asedio" id="role-card-24">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Torre de asedio</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">IV - VI</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Fábrica de armas de asedio</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Edificios y murallas.</span>
+                 <span class="role-stat weak">Débil contra Caballería, catapultas.</span>
+               </div>
+               <p class="role-card-howto">💡 Transportar infantería.</p>
+             </div>
+             <img src="../assets/img/siege-tower-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
+      <div class="role-card g3 sr-asedio" id="role-card-24"
+         data-chain='[{"n": "Catapulta", "e": "III - V", "s": 3, "d": 5, "i": "heavy-mortar-icon.png", "bc": "epoch-ancient"}, {"n": "Trebuchet", "e": "VI - VII", "s": 6, "d": 7, "i": "heavy-mortar-icon.png", "bc": "epoch-mixed"}, {"n": "Cañón de asedio", "e": "VIII", "s": 8, "d": 8, "i": "at-gun-icon.png", "bc": "epoch-gunpowder"}, {"n": "Obús", "e": "IX - XII", "s": 9, "d": 12, "i": "at-gun-icon.png", "bc": "epoch-mixed"}, {"n": "Paladín", "e": "XIII - XIV", "s": 13, "d": 14, "i": "at-gun-icon.png", "bc": "epoch-future"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Rama de Catapulta</h4>
-            <span class="epoch-badge epoch-mixed">III – XIV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Fábrica de armas de asedio</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Edificios, torres.</span>
-            <span class="role-stat weak">Débil contra Caballería, infantería.</span>
-          </div>
-          <p class="role-card-howto">💡 Mantenlos detrás de tus líneas.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/heavy-mortar-icon.png" alt=""></td><td>Catapulta</td><td>III - V</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/heavy-mortar-icon.png" alt=""></td><td>Trebuchet</td><td>VI - VII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/at-gun-icon.png" alt=""></td><td>Cañón de asedio</td><td>VIII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/at-gun-icon.png" alt=""></td><td>Obús</td><td>IX - XII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/at-gun-icon.png" alt=""></td><td>Paladín</td><td>XIII - XIV</td></tr>
-        </table>
-      </div>
-      <div class="role-card g3 sr-asedio" id="role-card-25">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Catapulta</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">III - V</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Fábrica de armas de asedio</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Edificios, torres.</span>
+                 <span class="role-stat weak">Débil contra Caballería, infantería.</span>
+               </div>
+               <p class="role-card-howto">💡 Mantenlos detrás de tus líneas.</p>
+             </div>
+             <img src="../assets/img/heavy-mortar-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/5</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
+      <div class="role-card g3 sr-asedio" id="role-card-25"
+         data-chain='[{"n": "Artillero", "e": "VIII - IX", "s": 8, "d": 9, "i": "heavy-mortar-icon.png", "bc": "epoch-gunpowder"}, {"n": "Mortero de trinchera", "e": "X", "s": 10, "d": 10, "i": "trench-mortar-icon.png", "bc": "epoch-modern"}, {"n": "Mortero pesado", "e": "XI - XV", "s": 11, "d": 15, "i": "heavy-mortar-icon.png", "bc": "epoch-mixed"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Rama de Artillero</h4>
-            <span class="epoch-badge epoch-mixed">VIII – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería, edificios ligeros.</span>
-            <span class="role-stat weak">Débil contra Caballería, francotiradores.</span>
-          </div>
-          <p class="role-card-howto">💡 Apoyo tras la línea principal.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/heavy-mortar-icon.png" alt=""></td><td>Artillero</td><td>VIII - IX</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/trench-mortar-icon.png" alt=""></td><td>Mortero de trinchera</td><td>X</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/heavy-mortar-icon.png" alt=""></td><td>Mortero pesado</td><td>XI - XV</td></tr>
-        </table>
-      </div>
-      <div class="role-card g3 sr-asedio" id="role-card-26">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Artillero</h4>
+               <span class="epoch-badge epoch-gunpowder" data-role="evo-epoch">VIII - IX</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería, edificios ligeros.</span>
+                 <span class="role-stat weak">Débil contra Caballería, francotiradores.</span>
+               </div>
+               <p class="role-card-howto">💡 Apoyo tras la línea principal.</p>
+             </div>
+             <img src="../assets/img/heavy-mortar-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/3</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
+      <div class="role-card g3 sr-asedio" id="role-card-26"
+         data-chain='[{"n": "Cañón de bronce", "e": "VII", "s": 7, "d": 7, "i": "field-cannon-icon.png", "bc": "epoch-gunpowder"}, {"n": "Culebrina", "e": "VIII", "s": 8, "d": 8, "i": "at-gun-icon.png", "bc": "epoch-gunpowder"}, {"n": "Cañón de campo", "e": "IX", "s": 9, "d": 9, "i": "at-gun-icon.png", "bc": "epoch-gunpowder"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Rama de Cañón de bronce</h4>
-            <span class="epoch-badge epoch-gunpowder">VII – IX</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Fábrica de armas de asedio</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería agrupada.</span>
-            <span class="role-stat weak">Débil contra Caballería rápida.</span>
-          </div>
-          <p class="role-card-howto">💡 Proteger en el centro.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/field-cannon-icon.png" alt=""></td><td>Cañón de bronce</td><td>VII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/at-gun-icon.png" alt=""></td><td>Culebrina</td><td>VIII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/at-gun-icon.png" alt=""></td><td>Cañón de campo</td><td>IX</td></tr>
-        </table>
-      </div>
-      <div class="role-card g3 sr-asedio" id="role-card-27">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Cañón de bronce</h4>
+               <span class="epoch-badge epoch-gunpowder" data-role="evo-epoch">VII</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Fábrica de armas de asedio</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería agrupada.</span>
+                 <span class="role-stat weak">Débil contra Caballería rápida.</span>
+               </div>
+               <p class="role-card-howto">💡 Proteger en el centro.</p>
+             </div>
+             <img src="../assets/img/field-cannon-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/3</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
+      <div class="role-card g3 sr-asedio" id="role-card-27"
+         data-chain='[{"n": "Bombardero IGM", "e": "X", "s": 10, "d": 10, "i": "bomber-icon.png", "bc": "epoch-modern"}, {"n": "Bombardero táctico", "e": "XI", "s": 11, "d": 11, "i": "bomber-icon.png", "bc": "epoch-modern"}, {"n": "Bombardero estratégico", "e": "XII", "s": 12, "d": 12, "i": "bomber-icon.png", "bc": "epoch-modern"}, {"n": "Bombardero furtivo", "e": "XIII", "s": 13, "d": 13, "i": "bomber-icon.png", "bc": "epoch-future"}, {"n": "Bombardero de energía", "e": "XIV - XV", "s": 14, "d": 15, "i": "bomber-icon.png", "bc": "epoch-future"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Rama de Bombardero IGM</h4>
-            <span class="epoch-badge epoch-mixed">X – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Aeropuerto</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infraestructura.</span>
-            <span class="role-stat weak">Débil contra Cazas interceptores.</span>
-          </div>
-          <p class="role-card-howto">💡 Escoltarlos.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/bomber-icon.png" alt=""></td><td>Bombardero IGM</td><td>X</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/bomber-icon.png" alt=""></td><td>Bombardero táctico</td><td>XI</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/bomber-icon.png" alt=""></td><td>Bombardero estratégico</td><td>XII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/bomber-icon.png" alt=""></td><td>Bombardero furtivo</td><td>XIII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/bomber-icon.png" alt=""></td><td>Bombardero de energía</td><td>XIV - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Bombardero IGM</h4>
+               <span class="epoch-badge epoch-modern" data-role="evo-epoch">X</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Aeropuerto</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infraestructura.</span>
+                 <span class="role-stat weak">Débil contra Cazas interceptores.</span>
+               </div>
+               <p class="role-card-howto">💡 Escoltarlos.</p>
+             </div>
+             <img src="../assets/img/bomber-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/5</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
       <div class="role-card g3 sr-asedio" id="role-card-28">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Bombardero nuclear</h4>
-            <span class="epoch-badge epoch-mixed">XII – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Aeropuerto</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Todo.</span>
-            <span class="role-stat weak">Débil contra Cazas.</span>
-          </div>
-          <p class="role-card-howto">💡 Un solo uso.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/atomic-bomber-icon.png" alt=""></td><td>Bombardero nuclear</td><td>XII - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Bombardero nuclear</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">XII - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Aeropuerto</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Todo.</span>
+                 <span class="role-stat weak">Débil contra Cazas.</span>
+               </div>
+               <p class="role-card-howto">💡 Un solo uso.</p>
+             </div>
+             <img src="../assets/img/atomic-bomber-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g3 sr-asedio" id="role-card-29">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Caza espacial</h4>
-            <span class="epoch-badge epoch-future">XV – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Puerto Espacial</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Cazas atmosféricos.</span>
-            <span class="role-stat weak">Débil contra Torres espaciales.</span>
-          </div>
-          <p class="role-card-howto">💡 Patrulla orbital.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/fighter-icon.png" alt=""></td><td>Caza espacial</td><td>XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Caza espacial</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Puerto Espacial</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Cazas atmosféricos.</span>
+                 <span class="role-stat weak">Débil contra Torres espaciales.</span>
+               </div>
+               <p class="role-card-howto">💡 Patrulla orbital.</p>
+             </div>
+             <img src="../assets/img/fighter-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g3 sr-asedio" id="role-card-30">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Bombardero espacial</h4>
-            <span class="epoch-badge epoch-future">XV – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Puerto Espacial</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Edificios pesados.</span>
-            <span class="role-stat weak">Débil contra Cazas espaciales.</span>
-          </div>
-          <p class="role-card-howto">💡 Ataque profundo.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/bomber-icon.png" alt=""></td><td>Bombardero espacial</td><td>XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Bombardero espacial</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Puerto Espacial</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Edificios pesados.</span>
+                 <span class="role-stat weak">Débil contra Cazas espaciales.</span>
+               </div>
+               <p class="role-card-howto">💡 Ataque profundo.</p>
+             </div>
+             <img src="../assets/img/bomber-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g3 sr-asedio" id="role-card-31">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Crucero espacial</h4>
-            <span class="epoch-badge epoch-future">XV – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Puerto Espacial</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Cazas, transportes.</span>
-            <span class="role-stat weak">Débil contra Acorazado espacial.</span>
-          </div>
-          <p class="role-card-howto">💡 Dominio orbital.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/cruiser-icon.png" alt=""></td><td>Crucero espacial</td><td>XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Crucero espacial</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Puerto Espacial</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Cazas, transportes.</span>
+                 <span class="role-stat weak">Débil contra Acorazado espacial.</span>
+               </div>
+               <p class="role-card-howto">💡 Dominio orbital.</p>
+             </div>
+             <img src="../assets/img/cruiser-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g3 sr-asedio" id="role-card-32">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Acorazado espacial</h4>
-            <span class="epoch-badge epoch-future">XV – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Puerto Espacial</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Cruceros espaciales.</span>
-            <span class="role-stat weak">Débil contra Fuego espacial masivo.</span>
-          </div>
-          <p class="role-card-howto">💡 Punta de lanza orbital.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/battleship-icon.png" alt=""></td><td>Acorazado espacial</td><td>XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Acorazado espacial</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Puerto Espacial</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Cruceros espaciales.</span>
+                 <span class="role-stat weak">Débil contra Fuego espacial masivo.</span>
+               </div>
+               <p class="role-card-howto">💡 Punta de lanza orbital.</p>
+             </div>
+             <img src="../assets/img/battleship-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g3 sr-asedio" id="role-card-33">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Portaaviones espacial</h4>
-            <span class="epoch-badge epoch-future">XV – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Puerto Espacial</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Bases planetarias.</span>
-            <span class="role-stat weak">Débil contra Acorazado espacial.</span>
-          </div>
-          <p class="role-card-howto">💡 Retaguardia orbital.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/aircraft-carrier-icon.png" alt=""></td><td>Portaaviones espacial</td><td>XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Portaaviones espacial</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Puerto Espacial</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Bases planetarias.</span>
+                 <span class="role-stat weak">Débil contra Acorazado espacial.</span>
+               </div>
+               <p class="role-card-howto">💡 Retaguardia orbital.</p>
+             </div>
+             <img src="../assets/img/aircraft-carrier-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g3 sr-asedio" id="role-card-34">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-asedio">ASEDIO</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-asedio">ASEDIO</span>
-            <h4>Transporte espacial</h4>
-            <span class="epoch-badge epoch-future">XV – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Puerto Espacial</span>
-            <span class="role-pro-badge">Atajo 2 — Alta micro-gestión</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Logística.</span>
-            <span class="role-stat weak">Débil contra Cazas espaciales.</span>
-          </div>
-          <p class="role-card-howto">💡 Invasión planetaria.</p>
-          <p class="role-card-protip">⚡ Pro-Tip: Requiere protección constante del Grupo 1 y micro-gestión manual (Atajo 2)</p>
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/transport-icon.png" alt=""></td><td>Transporte espacial</td><td>XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Transporte espacial</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Puerto Espacial</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Logística.</span>
+                 <span class="role-stat weak">Débil contra Cazas espaciales.</span>
+               </div>
+               <p class="role-card-howto">💡 Invasión planetaria.</p>
+             </div>
+             <img src="../assets/img/transport-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       </div>
     </div>
 
@@ -1038,358 +984,332 @@
           <span class="macro-subtitle">— Destructores de Economía</span>
         </div>
       </div>
+      
       <div class="role-group-cards">
               <div class="role-card g4 sr-raid" id="role-card-35">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Carro de guerra</h4>
-            <span class="epoch-badge epoch-ancient">II – IV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Establo</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Arqueros.</span>
-            <span class="role-stat weak">Débil contra Piqueros, camellos.</span>
-          </div>
-          <p class="role-card-howto">💡 Rodear flancos.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Carro de guerra</td><td>II - IV</td></tr>
-        </table>
-      </div>
-      <div class="role-card g4 sr-raid" id="role-card-36">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Carro de guerra</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">II - IV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Establo</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Arqueros.</span>
+                 <span class="role-stat weak">Débil contra Piqueros, camellos.</span>
+               </div>
+               <p class="role-card-howto">💡 Rodear flancos.</p>
+             </div>
+             <img src="../assets/img/shock-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
+      <div class="role-card g4 sr-raid" id="role-card-36"
+         data-chain='[{"n": "Jinete", "e": "V", "s": 5, "d": 5, "i": "shock-icon.png", "bc": "epoch-ancient"}, {"n": "Caballero", "e": "VI", "s": 6, "d": 6, "i": "shock-icon.png", "bc": "epoch-ancient"}, {"n": "Coracero real", "e": "VII", "s": 7, "d": 7, "i": "shock-icon.png", "bc": "epoch-gunpowder"}, {"n": "Coracero imperial", "e": "VIII", "s": 8, "d": 8, "i": "shock-icon.png", "bc": "epoch-gunpowder"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Rama de Jinete</h4>
-            <span class="epoch-badge epoch-mixed">V – VIII</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Establo</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Arqueros.</span>
-            <span class="role-stat weak">Débil contra Piqueros, camellos.</span>
-          </div>
-          <p class="role-card-howto">💡 Cargas directas.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Jinete</td><td>V</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Caballero</td><td>VI</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Coracero real</td><td>VII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Coracero imperial</td><td>VIII</td></tr>
-        </table>
-      </div>
-      <div class="role-card g4 sr-raid" id="role-card-37">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Jinete</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">V</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Establo</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Arqueros.</span>
+                 <span class="role-stat weak">Débil contra Piqueros, camellos.</span>
+               </div>
+               <p class="role-card-howto">💡 Cargas directas.</p>
+             </div>
+             <img src="../assets/img/shock-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/4</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
+      <div class="role-card g4 sr-raid" id="role-card-37"
+         data-chain='[{"n": "Arquero en carro", "e": "II - IV", "s": 2, "d": 4, "i": "cav-archer-icon.png", "bc": "epoch-ancient"}, {"n": "Arquero a caballo", "e": "V - VI", "s": 5, "d": 6, "i": "cav-archer-icon.png", "bc": "epoch-ancient"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Rama de Arquero en carro</h4>
-            <span class="epoch-badge epoch-ancient">II – VI</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Establo</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería lenta.</span>
-            <span class="role-stat weak">Débil contra Arqueros a pie.</span>
-          </div>
-          <p class="role-card-howto">💡 Hit & run.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/cav-archer-icon.png" alt=""></td><td>Arquero en carro</td><td>II - IV</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/cav-archer-icon.png" alt=""></td><td>Arquero a caballo</td><td>V - VI</td></tr>
-        </table>
-      </div>
-      <div class="role-card g4 sr-raid" id="role-card-38">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Arquero en carro</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">II - IV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Establo</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería lenta.</span>
+                 <span class="role-stat weak">Débil contra Arqueros a pie.</span>
+               </div>
+               <p class="role-card-howto">💡 Hit & run.</p>
+             </div>
+             <img src="../assets/img/cav-archer-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/2</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
+      <div class="role-card g4 sr-raid" id="role-card-38"
+         data-chain='[{"n": "Carabinero", "e": "VII - VIII", "s": 7, "d": 8, "i": "cav-archer-icon.png", "bc": "epoch-gunpowder"}, {"n": "Dragón", "e": "IX", "s": 9, "d": 9, "i": "cav-archer-icon.png", "bc": "epoch-gunpowder"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Rama de Carabinero</h4>
-            <span class="epoch-badge epoch-gunpowder">VII – IX</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Establo</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Alabarderos.</span>
-            <span class="role-stat weak">Débil contra Artillería.</span>
-          </div>
-          <p class="role-card-howto">💡 Flanqueo.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/cav-archer-icon.png" alt=""></td><td>Carabinero</td><td>VII - VIII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/cav-archer-icon.png" alt=""></td><td>Dragón</td><td>IX</td></tr>
-        </table>
-      </div>
-      <div class="role-card g4 sr-raid" id="role-card-39">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Carabinero</h4>
+               <span class="epoch-badge epoch-gunpowder" data-role="evo-epoch">VII - VIII</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Establo</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Alabarderos.</span>
+                 <span class="role-stat weak">Débil contra Artillería.</span>
+               </div>
+               <p class="role-card-howto">💡 Flanqueo.</p>
+             </div>
+             <img src="../assets/img/cav-archer-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/2</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
+      <div class="role-card g4 sr-raid" id="role-card-39"
+         data-chain='[{"n": "Tirador de primera", "e": "VIII - IX", "s": 8, "d": 9, "i": "sharpshooter-icon.png", "bc": "epoch-gunpowder"}, {"n": "Francotirador", "e": "X - XV", "s": 10, "d": 15, "i": "sniper-icon.png", "bc": "epoch-mixed"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Rama de Tirador de primera</h4>
-            <span class="epoch-badge epoch-mixed">VIII – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería.</span>
-            <span class="role-stat weak">Débil contra Artillería.</span>
-          </div>
-          <p class="role-card-howto">💡 Flanqueos.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/sharpshooter-icon.png" alt=""></td><td>Tirador de primera</td><td>VIII - IX</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/sniper-icon.png" alt=""></td><td>Francotirador</td><td>X - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Tirador de primera</h4>
+               <span class="epoch-badge epoch-gunpowder" data-role="evo-epoch">VIII - IX</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería.</span>
+                 <span class="role-stat weak">Débil contra Artillería.</span>
+               </div>
+               <p class="role-card-howto">💡 Flanqueos.</p>
+             </div>
+             <img src="../assets/img/sharpshooter-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/2</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
       <div class="role-card g4 sr-raid" id="role-card-40">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Helicóptero de ataque</h4>
-            <span class="epoch-badge epoch-mixed">XII – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Aeropuerto</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Tanques.</span>
-            <span class="role-stat weak">Débil contra Cazas.</span>
-          </div>
-          <p class="role-card-howto">💡 Hostigamiento.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/helicopter-gunship-icon.png" alt=""></td><td>Helicóptero de ataque</td><td>XII - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Helicóptero de ataque</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">XII - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Aeropuerto</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Tanques.</span>
+                 <span class="role-stat weak">Débil contra Cazas.</span>
+               </div>
+               <p class="role-card-howto">💡 Hostigamiento.</p>
+             </div>
+             <img src="../assets/img/helicopter-gunship-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g4 sr-raid" id="role-card-41">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Helicóptero de transporte</h4>
-            <span class="epoch-badge epoch-mixed">XII – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Aeropuerto</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Logística.</span>
-            <span class="role-stat weak">Débil contra Cañones AA.</span>
-          </div>
-          <p class="role-card-howto">💡 Mover tropas.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/heli-transport-icon.png" alt=""></td><td>Helicóptero de transporte</td><td>XII - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Helicóptero de transporte</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">XII - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Aeropuerto</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Logística.</span>
+                 <span class="role-stat weak">Débil contra Cañones AA.</span>
+               </div>
+               <p class="role-card-howto">💡 Mover tropas.</p>
+             </div>
+             <img src="../assets/img/heli-transport-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g4 sr-raid" id="role-card-42">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Submarino</h4>
-            <span class="epoch-badge epoch-mixed">X – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Astillero</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Acorazados.</span>
-            <span class="role-stat weak">Débil contra Fragatas, Helicópteros navales.</span>
-          </div>
-          <p class="role-card-howto">💡 Hostigar líneas.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/submarine-icon.png" alt=""></td><td>Submarino</td><td>X - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Submarino</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">X - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Astillero</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Acorazados.</span>
+                 <span class="role-stat weak">Débil contra Fragatas, Helicópteros navales.</span>
+               </div>
+               <p class="role-card-howto">💡 Hostigar líneas.</p>
+             </div>
+             <img src="../assets/img/submarine-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g4 sr-raid" id="role-card-43">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Submarino Nuclear</h4>
-            <span class="epoch-badge epoch-mixed">XII – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Astillero</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Bases costeras.</span>
-            <span class="role-stat weak">Débil contra Cruceros.</span>
-          </div>
-          <p class="role-card-howto">💡 Ataque letal sigiloso.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/nuclear-sub-icon.png" alt=""></td><td>Submarino Nuclear</td><td>XII - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Submarino Nuclear</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">XII - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Astillero</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Bases costeras.</span>
+                 <span class="role-stat weak">Débil contra Cruceros.</span>
+               </div>
+               <p class="role-card-howto">💡 Ataque letal sigiloso.</p>
+             </div>
+             <img src="../assets/img/nuclear-sub-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g4 sr-raid" id="role-card-44">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Bárbaro</h4>
-            <span class="epoch-badge epoch-ancient">V – VI</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería.</span>
-            <span class="role-stat weak">Débil contra Tiradores a distancia.</span>
-          </div>
-          <p class="role-card-howto">💡 Emboscadas.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Bárbaro</td><td>V - VI</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Bárbaro</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">V - VI</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería.</span>
+                 <span class="role-stat weak">Débil contra Tiradores a distancia.</span>
+               </div>
+               <p class="role-card-howto">💡 Emboscadas.</p>
+             </div>
+             <img src="../assets/img/shock-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g4 sr-raid" id="role-card-45">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Vikingo</h4>
-            <span class="epoch-badge epoch-ancient">V – VI</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería.</span>
-            <span class="role-stat weak">Débil contra Tiradores.</span>
-          </div>
-          <p class="role-card-howto">💡 Emboscadas.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Vikingo</td><td>V - VI</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Vikingo</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">V - VI</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería.</span>
+                 <span class="role-stat weak">Débil contra Tiradores.</span>
+               </div>
+               <p class="role-card-howto">💡 Emboscadas.</p>
+             </div>
+             <img src="../assets/img/shock-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g4 sr-raid" id="role-card-46">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Lanzallamas</h4>
-            <span class="epoch-badge epoch-mixed">X – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Grupos densos.</span>
-            <span class="role-stat weak">Débil contra Francotiradores.</span>
-          </div>
-          <p class="role-card-howto">💡 Cuellos de botella.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/flame-thrower-icon.png" alt=""></td><td>Lanzallamas</td><td>X - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Lanzallamas</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">X - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Grupos densos.</span>
+                 <span class="role-stat weak">Débil contra Francotiradores.</span>
+               </div>
+               <p class="role-card-howto">💡 Cuellos de botella.</p>
+             </div>
+             <img src="../assets/img/flame-thrower-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g4 sr-raid" id="role-card-47">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Cruzado</h4>
-            <span class="epoch-badge epoch-ancient">V – V</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería.</span>
-            <span class="role-stat weak">Débil contra Artillería.</span>
-          </div>
-          <p class="role-card-howto">💡 Asalto directo.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Cruzado</td><td>V</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Cruzado</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">V</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería.</span>
+                 <span class="role-stat weak">Débil contra Artillería.</span>
+               </div>
+               <p class="role-card-howto">💡 Asalto directo.</p>
+             </div>
+             <img src="../assets/img/shock-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g4 sr-raid" id="role-card-48">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Comando SAS</h4>
-            <span class="epoch-badge epoch-modern">XI – XII</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Edificios, puentes.</span>
-            <span class="role-stat weak">Débil contra Ametralladoras.</span>
-          </div>
-          <p class="role-card-howto">💡 Infiltración anfibia.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/marine-icon.png" alt=""></td><td>Comando SAS</td><td>XI - XII</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Comando SAS</h4>
+               <span class="epoch-badge epoch-modern" data-role="evo-epoch">XI - XII</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Edificios, puentes.</span>
+                 <span class="role-stat weak">Débil contra Ametralladoras.</span>
+               </div>
+               <p class="role-card-howto">💡 Infiltración anfibia.</p>
+             </div>
+             <img src="../assets/img/marine-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g4 sr-raid" id="role-card-49">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-raid">RAID</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-raid">RAID</span>
-            <h4>Ninja Cibernético</h4>
-            <span class="epoch-badge epoch-future">XIV – XIV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Cuartel</span>
-            <span class="role-pro-badge">Atajo 3 — Flanqueo y acoso</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería y líderes.</span>
-            <span class="role-stat weak">Débil contra Torres detectoras.</span>
-          </div>
-          <p class="role-card-howto">💡 Asesinatos rápidos.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/partisan-icon.png" alt=""></td><td>Ninja Cibernético</td><td>XIV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Ninja Cibernético</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XIV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Cuartel</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería y líderes.</span>
+                 <span class="role-stat weak">Débil contra Torres detectoras.</span>
+               </div>
+               <p class="role-card-howto">💡 Asesinatos rápidos.</p>
+             </div>
+             <img src="../assets/img/partisan-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       </div>
     </div>
 
@@ -1401,403 +1321,360 @@
           <span class="macro-subtitle">— Infraestructura Intocable</span>
         </div>
       </div>
+      
       <div class="role-group-cards">
               <div class="role-card g5 sr-soporte" id="role-card-50">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Ciudadano</h4>
-            <span class="epoch-badge epoch-mixed">I – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Centro Urbano</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra N/A</span>
-            <span class="role-stat weak">Débil contra Cualquier unidad militar.</span>
-          </div>
-          <p class="role-card-howto">💡 Mantener a salvo en la base.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/town-center-icon.png" alt=""></td><td>Ciudadano</td><td>I - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Ciudadano</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">I - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Centro Urbano</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra N/A</span>
+                 <span class="role-stat weak">Débil contra Cualquier unidad militar.</span>
+               </div>
+               <p class="role-card-howto">💡 Mantener a salvo en la base.</p>
+             </div>
+             <img src="../assets/img/town-center-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-51">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Perro explorador</h4>
-            <span class="epoch-badge epoch-mixed">I – IX</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Centro Urbano</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra N/A</span>
-            <span class="role-stat weak">Débil contra Cualquier unidad militar.</span>
-          </div>
-          <p class="role-card-howto">💡 Mover por el mapa para quitar niebla.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/empire-earth-icon.png" alt=""></td><td>Perro explorador</td><td>I - IX</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Perro explorador</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">I - IX</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Centro Urbano</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra N/A</span>
+                 <span class="role-stat weak">Débil contra Cualquier unidad militar.</span>
+               </div>
+               <p class="role-card-howto">💡 Mover por el mapa para quitar niebla.</p>
+             </div>
+             <img src="../assets/img/empire-earth-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-52">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Globo de observación</h4>
-            <span class="epoch-badge epoch-modern">X – XII</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Capitolio</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra N/A</span>
-            <span class="role-stat weak">Débil contra Unidades antiaéreas.</span>
-          </div>
-          <p class="role-card-howto">💡 Vigilar movimientos del enemigo.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/empire-earth-icon.png" alt=""></td><td>Globo de observación</td><td>X - XII</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Globo de observación</h4>
+               <span class="epoch-badge epoch-modern" data-role="evo-epoch">X - XII</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Capitolio</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra N/A</span>
+                 <span class="role-stat weak">Débil contra Unidades antiaéreas.</span>
+               </div>
+               <p class="role-card-howto">💡 Vigilar movimientos del enemigo.</p>
+             </div>
+             <img src="../assets/img/empire-earth-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-53">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Héroe guerrero</h4>
-            <span class="epoch-badge epoch-mixed">I – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Centro Urbano / Capitolio</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería, caballería.</span>
-            <span class="role-stat weak">Débil contra Francotiradores, artillería.</span>
-          </div>
-          <p class="role-card-howto">💡 En el frente con las tropas.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/shock-icon.png" alt=""></td><td>Héroe guerrero</td><td>I - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Héroe guerrero</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">I - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Centro Urbano / Capitolio</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería, caballería.</span>
+                 <span class="role-stat weak">Débil contra Francotiradores, artillería.</span>
+               </div>
+               <p class="role-card-howto">💡 En el frente con las tropas.</p>
+             </div>
+             <img src="../assets/img/shock-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-54">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Héroe estratega</h4>
-            <span class="epoch-badge epoch-mixed">I – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Centro Urbano / Capitolio</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra N/A</span>
-            <span class="role-stat weak">Débil contra Francotiradores, artillería.</span>
-          </div>
-          <p class="role-card-howto">💡 Acompañando al núcleo del ejército.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/medic-icon.png" alt=""></td><td>Héroe estratega</td><td>I - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Héroe estratega</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">I - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Centro Urbano / Capitolio</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra N/A</span>
+                 <span class="role-stat weak">Débil contra Francotiradores, artillería.</span>
+               </div>
+               <p class="role-card-howto">💡 Acompañando al núcleo del ejército.</p>
+             </div>
+             <img src="../assets/img/medic-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-55">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Sacerdote <span class="strategy-icon" title="Estrategia Especial">⭐</span></h4>
-            <span class="epoch-badge epoch-mixed">I – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Templo</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Unidades de alto valor.</span>
-            <span class="role-stat weak">Débil contra Infantería masiva.</span>
-          </div>
-          <p class="role-card-howto">💡 En la retaguardia.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/temple-icon.png" alt=""></td><td>Sacerdote</td><td>I - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Sacerdote <span class="strategy-icon" title="Estrategia Especial">⭐</span></h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">I - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Templo</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Unidades de alto valor.</span>
+                 <span class="role-stat weak">Débil contra Infantería masiva.</span>
+               </div>
+               <p class="role-card-howto">💡 En la retaguardia.</p>
+             </div>
+             <img src="../assets/img/temple-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-56">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Profeta <span class="strategy-icon" title="Estrategia Especial">⭐</span></h4>
-            <span class="epoch-badge epoch-mixed">I – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Templo</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Masas de tropas.</span>
-            <span class="role-stat weak">Débil contra Francotiradores.</span>
-          </div>
-          <p class="role-card-howto">💡 Proteger estrictamente.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/temple-icon.png" alt=""></td><td>Profeta</td><td>I - XV</td></tr>
-        </table>
-      </div>
-      <div class="role-card g5 sr-soporte" id="role-card-57">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Profeta <span class="strategy-icon" title="Estrategia Especial">⭐</span></h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">I - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Templo</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Masas de tropas.</span>
+                 <span class="role-stat weak">Débil contra Francotiradores.</span>
+               </div>
+               <p class="role-card-howto">💡 Proteger estrictamente.</p>
+             </div>
+             <img src="../assets/img/temple-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
+      <div class="role-card g5 sr-soporte" id="role-card-57"
+         data-chain='[{"n": "Médico", "e": "VIII - IX", "s": 8, "d": 9, "i": "medic-icon.png", "bc": "epoch-gunpowder"}, {"n": "Médico atómico", "e": "X - XII", "s": 10, "d": 12, "i": "medic-icon.png", "bc": "epoch-modern"}, {"n": "Médico digital", "e": "XIII - XV", "s": 13, "d": 15, "i": "medic-icon.png", "bc": "epoch-future"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Rama de Médico</h4>
-            <span class="epoch-badge epoch-mixed">VIII – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Hospital</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra N/A</span>
-            <span class="role-stat weak">Débil contra Fuego directo.</span>
-          </div>
-          <p class="role-card-howto">💡 Mantener en el centro.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/medic-icon.png" alt=""></td><td>Médico</td><td>VIII - IX</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/medic-icon.png" alt=""></td><td>Médico atómico</td><td>X - XII</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/medic-icon.png" alt=""></td><td>Médico digital</td><td>XIII - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Médico</h4>
+               <span class="epoch-badge epoch-gunpowder" data-role="evo-epoch">VIII - IX</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Hospital</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra N/A</span>
+                 <span class="role-stat weak">Débil contra Fuego directo.</span>
+               </div>
+               <p class="role-card-howto">💡 Mantener en el centro.</p>
+             </div>
+             <img src="../assets/img/medic-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/3</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-58">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Barco de pesca</h4>
-            <span class="epoch-badge epoch-mixed">I – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Astillero</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra N/A</span>
-            <span class="role-stat weak">Débil contra Buques.</span>
-          </div>
-          <p class="role-card-howto">💡 Asegurar alimento.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/fishing-boat-icon.png" alt=""></td><td>Barco de pesca</td><td>I - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Barco de pesca</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">I - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Astillero</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra N/A</span>
+                 <span class="role-stat weak">Débil contra Buques.</span>
+               </div>
+               <p class="role-card-howto">💡 Asegurar alimento.</p>
+             </div>
+             <img src="../assets/img/fishing-boat-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-59">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Barco de transporte</h4>
-            <span class="epoch-badge epoch-mixed">I – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Astillero</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra N/A</span>
-            <span class="role-stat weak">Débil contra Buques.</span>
-          </div>
-          <p class="role-card-howto">💡 Desembarcos.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/transport-icon.png" alt=""></td><td>Barco de transporte</td><td>I - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Barco de transporte</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">I - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Astillero</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra N/A</span>
+                 <span class="role-stat weak">Débil contra Buques.</span>
+               </div>
+               <p class="role-card-howto">💡 Desembarcos.</p>
+             </div>
+             <img src="../assets/img/transport-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-60">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Portaaviones</h4>
-            <span class="epoch-badge epoch-mixed">XI – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Astillero</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Objetivos lejanos.</span>
-            <span class="role-stat weak">Débil contra Submarinos.</span>
-          </div>
-          <p class="role-card-howto">💡 Retaguardia marítima.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/aircraft-carrier-icon.png" alt=""></td><td>Portaaviones</td><td>XI - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Portaaviones</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">XI - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Astillero</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Objetivos lejanos.</span>
+                 <span class="role-stat weak">Débil contra Submarinos.</span>
+               </div>
+               <p class="role-card-howto">💡 Retaguardia marítima.</p>
+             </div>
+             <img src="../assets/img/aircraft-carrier-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-61">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Pandora</h4>
-            <span class="epoch-badge epoch-future">XIII – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Laboratorio Cíber</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería Cíber.</span>
-            <span class="role-stat weak">Débil contra Asalto directo.</span>
-          </div>
-          <p class="role-card-howto">💡 Retaguardia.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/pandora-icon.png" alt=""></td><td>Pandora</td><td>XIII - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Pandora</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XIII - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Laboratorio Cíber</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería Cíber.</span>
+                 <span class="role-stat weak">Débil contra Asalto directo.</span>
+               </div>
+               <p class="role-card-howto">💡 Retaguardia.</p>
+             </div>
+             <img src="../assets/img/pandora-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-62">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Tempestad / Hades / Poseidón</h4>
-            <span class="epoch-badge epoch-future">XIII – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Laboratorio Cíber</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Unidades Cíber.</span>
-            <span class="role-stat weak">Débil contra Asalto masivo.</span>
-          </div>
-          <p class="role-card-howto">💡 Sabotaje avanzado.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/tempest-icon.png" alt=""></td><td>Tempestad / Hades / Poseidón</td><td>XIII - XV</td></tr>
-        </table>
-      </div>
-      <div class="role-card g5 sr-soporte" id="role-card-63">
-        <div class="role-card-header">
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Tempestad / Hades / Poseidón</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XIII - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Laboratorio Cíber</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Unidades Cíber.</span>
+                 <span class="role-stat weak">Débil contra Asalto masivo.</span>
+               </div>
+               <p class="role-card-howto">💡 Sabotaje avanzado.</p>
+             </div>
+             <img src="../assets/img/tempest-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
+      <div class="role-card g5 sr-soporte" id="role-card-63"
+         data-chain='[{"n": "Torre", "e": "I - II", "s": 1, "d": 2, "i": "tower-icon.png", "bc": "epoch-ancient"}, {"n": "Torre de flechas", "e": "III - VI", "s": 3, "d": 6, "i": "tower-icon.png", "bc": "epoch-ancient"}, {"n": "Torre de cañón", "e": "VII - IX", "s": 7, "d": 9, "i": "tower-icon.png", "bc": "epoch-gunpowder"}, {"n": "Torre de energía", "e": "XIII - XV", "s": 13, "d": 15, "i": "tower-icon.png", "bc": "epoch-future"}]'
+         data-chain-idx="0">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Rama de Torre</h4>
-            <span class="epoch-badge epoch-mixed">I – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Ciudadano</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Infantería primitiva.</span>
-            <span class="role-stat weak">Débil contra Arietes.</span>
-          </div>
-          <p class="role-card-howto">💡 Cerca de recursos.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/tower-icon.png" alt=""></td><td>Torre</td><td>I - II</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/tower-icon.png" alt=""></td><td>Torre de flechas</td><td>III - VI</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/tower-icon.png" alt=""></td><td>Torre de cañón</td><td>VII - IX</td></tr>
-        <tr><td class="td-icon"><img src="../assets/img/tower-icon.png" alt=""></td><td>Torre de energía</td><td>XIII - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Torre</h4>
+               <span class="epoch-badge epoch-ancient" data-role="evo-epoch">I - II</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Ciudadano</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Infantería primitiva.</span>
+                 <span class="role-stat weak">Débil contra Arietes.</span>
+               </div>
+               <p class="role-card-howto">💡 Cerca de recursos.</p>
+             </div>
+             <img src="../assets/img/tower-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>        <div class="evo-nav">
+           <button class="evo-btn evo-prev" disabled data-role="evo-prev" title="Unidad anterior">◀</button>
+           <span class="evo-pos" data-role="evo-pos">1/4</span>
+           <button class="evo-btn evo-next" data-role="evo-next" title="Unidad siguiente">▶</button>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-64">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Torre antiaérea (Flak)</h4>
-            <span class="epoch-badge epoch-modern">X – XII</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Ciudadano</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Aviones.</span>
-            <span class="role-stat weak">Débil contra Tanques.</span>
-          </div>
-          <p class="role-card-howto">💡 Cerca de edificios clave.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/skywatcher-icon.png" alt=""></td><td>Torre antiaérea (Flak)</td><td>X - XII</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Torre antiaérea (Flak)</h4>
+               <span class="epoch-badge epoch-modern" data-role="evo-epoch">X - XII</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Ciudadano</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Aviones.</span>
+                 <span class="role-stat weak">Débil contra Tanques.</span>
+               </div>
+               <p class="role-card-howto">💡 Cerca de edificios clave.</p>
+             </div>
+             <img src="../assets/img/skywatcher-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-65">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Batería antimisiles</h4>
-            <span class="epoch-badge epoch-mixed">X – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Ciudadano</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Misiles atómicos.</span>
-            <span class="role-stat weak">Débil contra Asalto terrestre.</span>
-          </div>
-          <p class="role-card-howto">💡 Defensa base.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/tower-icon.png" alt=""></td><td>Batería antimisiles</td><td>X - XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Batería antimisiles</h4>
+               <span class="epoch-badge epoch-mixed" data-role="evo-epoch">X - XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Ciudadano</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Misiles atómicos.</span>
+                 <span class="role-stat weak">Débil contra Asalto terrestre.</span>
+               </div>
+               <p class="role-card-howto">💡 Defensa base.</p>
+             </div>
+             <img src="../assets/img/tower-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       <div class="role-card g5 sr-soporte" id="role-card-66">
-        <div class="role-card-header">
+         <div class="role-card-header">
+                     <div class="role-card-sub"><span class="subrole-badge sr-soporte">SOPORTE</span></div>
           <div class="role-card-top">
-            <span class="subrole-badge sr-soporte">SOPORTE</span>
-            <h4>Defensa Espacial</h4>
-            <span class="epoch-badge epoch-future">XV – XV</span>
-          </div>
-          <div class="role-card-meta">
-            <span class="role-meta-item">🏭 Ciudadano</span>
-            <span class="role-pro-badge">Soporte y Base</span>
-          </div>
-          <div class="role-card-stats">
-            <span class="role-stat strong">Bueno contra Cazas y cruceros espaciales.</span>
-            <span class="role-stat weak">Débil contra Acorazado espacial.</span>
-          </div>
-          <p class="role-card-howto">💡 Protección de satélites.</p>
-          
-        </div>
-        <table class="role-table">
-          <tr><th class="th-icon"></th><th>Unidad</th><th>Épocas</th></tr>
-                  <tr><td class="td-icon"><img src="../assets/img/tower-icon.png" alt=""></td><td>Defensa Espacial</td><td>XV</td></tr>
-        </table>
-      </div>
+             <div class="role-card-body">
+               <h4 data-role="evo-name">Defensa Espacial</h4>
+               <span class="epoch-badge epoch-future" data-role="evo-epoch">XV</span>
+               <div class="role-card-meta">
+                 <span class="role-meta-item">🏭 Ciudadano</span>
+               </div>
+               <div class="role-card-stats">
+                 <span class="role-stat strong">Bueno contra Cazas y cruceros espaciales.</span>
+                 <span class="role-stat weak">Débil contra Acorazado espacial.</span>
+               </div>
+               <p class="role-card-howto">💡 Protección de satélites.</p>
+             </div>
+             <img src="../assets/img/tower-icon.png" class="role-card-icon" data-role="evo-icon" alt="">
+           </div>
+         </div>
+       </div>
       </div>
     </div>
 
@@ -2387,50 +2264,86 @@
   </footer>
 
   <script>
-    var romanMap = { 'I':1,'II':2,'III':3,'IV':4,'V':5,'VI':6,'VII':7,'VIII':8,'IX':9,'X':10,'XI':11,'XII':12,'XIII':13,'XIV':14,'XV':15 };
-    function parseEpochs(text) {
-      var parts = text.trim().split(/\s*[-–]\s*/);
-      var start = romanMap[parts[0]] || 1;
-      var end = parts.length > 1 ? (romanMap[parts[1]] || start) : start;
-      return { start: start, end: end };
+    function switchToUnit(card, chain, idx) {
+      card.setAttribute('data-chain-idx', idx);
+      var unit = chain[idx];
+      var iconEl = card.querySelector('[data-role="evo-icon"]');
+      if (iconEl) iconEl.src = '../assets/img/' + unit.i;
+      var nameEl = card.querySelector('[data-role="evo-name"]');
+      if (nameEl) nameEl.textContent = unit.n;
+      var epochEl = card.querySelector('[data-role="evo-epoch"]');
+      if (epochEl) {
+        epochEl.textContent = unit.e;
+        epochEl.className = 'epoch-badge ' + unit.bc;
+      }
+      var posEl = card.querySelector('[data-role="evo-pos"]');
+      if (posEl) posEl.textContent = (idx + 1) + '/' + chain.length;
+      var prevBtn = card.querySelector('[data-role="evo-prev"]');
+      if (prevBtn) prevBtn.disabled = idx === 0;
+      var nextBtn = card.querySelector('[data-role="evo-next"]');
+      if (nextBtn) nextBtn.disabled = idx === chain.length - 1;
     }
-    function filterTables() {
+
+    function filterUnits() {
       var from = parseInt(document.getElementById('epochFrom').value);
       var to = parseInt(document.getElementById('epochTo').value);
       if (from > to) { var t = from; from = to; to = t; }
       var wraps = document.querySelectorAll('.role-card');
       var anyVisible = false;
-      wraps.forEach(function(wrap) {
-        var rows = wrap.querySelectorAll('tbody tr, table tr');
-        var visibleRows = 0;
-        rows.forEach(function(row) {
-          var epochCell = row.querySelector('td:last-child');
-          if (!epochCell) return;
-          var range = parseEpochs(epochCell.textContent);
-          if (range.end >= from && range.start <= to) {
-            row.classList.remove('hidden');
-            visibleRows++;
-          } else {
-            row.classList.add('hidden');
+      for (var i = 0; i < wraps.length; i++) {
+        var wrap = wraps[i];
+        var chainAttr = wrap.getAttribute('data-chain');
+        if (!chainAttr) {
+          wrap.classList.remove('hidden');
+          anyVisible = true;
+          continue;
+        }
+        var chain = JSON.parse(chainAttr);
+        var idx = parseInt(wrap.getAttribute('data-chain-idx')) || 0;
+        var cur = chain[idx];
+        if (cur.d >= from && cur.s <= to) {
+          wrap.classList.remove('hidden');
+          anyVisible = true;
+          continue;
+        }
+        var found = false;
+        for (var j = 0; j < chain.length; j++) {
+          if (chain[j].d >= from && chain[j].s <= to) {
+            switchToUnit(wrap, chain, j);
+            found = true;
+            break;
           }
-        });
-        if (visibleRows > 0) {
+        }
+        if (found) {
           wrap.classList.remove('hidden');
           anyVisible = true;
         } else {
           wrap.classList.add('hidden');
         }
-      });
-      // Hide/show macro sections based on visible cards
+      }
       var macros = document.querySelectorAll('.macro-section');
-      macros.forEach(function(macro) {
-        var visibleCards = macro.querySelectorAll('.role-card:not(.hidden)').length;
-        macro.style.display = visibleCards > 0 ? '' : 'none';
-      });
+      for (var k = 0; k < macros.length; k++) {
+        var visibleCards = macros[k].querySelectorAll('.role-card:not(.hidden)').length;
+        macros[k].style.display = visibleCards > 0 ? '' : 'none';
+      }
       document.getElementById('noResults').style.display = anyVisible ? 'none' : 'block';
     }
-    document.getElementById('epochFrom').addEventListener('change', filterTables);
-    document.getElementById('epochTo').addEventListener('change', filterTables);
+
+    var evoBtns = document.querySelectorAll('.evo-btn');
+    for (var b = 0; b < evoBtns.length; b++) {
+      evoBtns[b].addEventListener('click', function() {
+        var card = this.closest('.role-card');
+        var chain = JSON.parse(card.getAttribute('data-chain'));
+        var idx = parseInt(card.getAttribute('data-chain-idx')) || 0;
+        var dir = this.classList.contains('evo-prev') ? -1 : 1;
+        var newIdx = idx + dir;
+        if (newIdx < 0 || newIdx >= chain.length) return;
+        switchToUnit(card, chain, newIdx);
+      });
+    }
+
+    document.getElementById('epochFrom').addEventListener('change', filterUnits);
+    document.getElementById('epochTo').addEventListener('change', filterUnits);
   </script>
 </body>
 </html>
