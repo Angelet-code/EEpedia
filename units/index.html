@@ -2284,6 +2284,15 @@
       if (nextBtn) nextBtn.disabled = idx === chain.length - 1;
     }
 
+    var romanMap = { 'I':1,'II':2,'III':3,'IV':4,'V':5,'VI':6,'VII':7,'VIII':8,'IX':9,'X':10,'XI':11,'XII':12,'XIII':13,'XIV':14,'XV':15 };
+
+    function parseEpochRange(text) {
+      var parts = text.trim().split(/\s*[-–]\s*/);
+      var start = romanMap[parts[0]] || 1;
+      var end = parts.length > 1 ? (romanMap[parts[1]] || start) : start;
+      return { start: start, end: end };
+    }
+
     function filterUnits() {
       var from = parseInt(document.getElementById('epochFrom').value);
       var to = parseInt(document.getElementById('epochTo').value);
@@ -2294,8 +2303,19 @@
         var wrap = wraps[i];
         var chainAttr = wrap.getAttribute('data-chain');
         if (!chainAttr) {
-          wrap.classList.remove('hidden');
-          anyVisible = true;
+          var epochEl = wrap.querySelector('[data-role="evo-epoch"]');
+          if (epochEl) {
+            var range = parseEpochRange(epochEl.textContent);
+            if (range.end >= from && range.start <= to) {
+              wrap.classList.remove('hidden');
+              anyVisible = true;
+            } else {
+              wrap.classList.add('hidden');
+            }
+          } else {
+            wrap.classList.remove('hidden');
+            anyVisible = true;
+          }
           continue;
         }
         var chain = JSON.parse(chainAttr);
