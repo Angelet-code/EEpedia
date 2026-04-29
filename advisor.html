@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Asesor EEpedia — Introduce tus recursos y recibe recomendaciones sobre que construir, que unidades producir y en que direccion avanzar.">
+  <title>Asesor de Partida — EEpedia</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    .advisor-layout { display: flex; gap: 28px; max-width: var(--max-width); margin: 32px auto; padding: 0 32px 60px; }
+    .advisor-left { flex: 1; min-width: 0; }
+    .advisor-right { width: 440px; flex-shrink: 0; }
+    .advisor-right-inner { position: sticky; top: 76px; display: flex; flex-direction: column; gap: 14px; }
+
+    .res-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 28px 30px; box-shadow: var(--shadow-sm); }
+    .res-card h3 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--fg-muted); margin: 0 0 20px; border: none; padding: 0; }
+
+    .res-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .res-row img { width: 26px; height: 26px; object-fit: contain; flex-shrink: 0; }
+    .res-label { width: 80px; font-size: 0.85rem; font-weight: 600; color: var(--fg-primary); }
+    .res-slider { flex: 1; accent-color: var(--accent); height: 6px; }
+    .res-val { width: 60px; text-align: right; font-size: 0.95rem; font-weight: 700; color: var(--fg-primary); }
+    .res-max { display: inline-block; padding: 2px 8px; border-radius: 100px; font-size: 0.68rem; font-weight: 600; cursor: pointer; transition: all 0.15s; border: 1px solid var(--border-subtle); background: var(--bg-card); color: var(--fg-muted); margin-left: 4px; }
+    .res-max:hover { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+
+    .epoch-select { width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-visible); background: var(--bg-card); font-size: 0.85rem; font-weight: 500; color: var(--fg-primary); margin-top: 6px; cursor: pointer; font-family: 'Inter', sans-serif; }
+
+    .btn-analyze { width: 100%; padding: 14px 24px; border: none; border-radius: var(--radius-sm); background: var(--accent); color: #fff; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; margin-top: 16px; font-family: 'Inter', sans-serif; letter-spacing: 0.02em; }
+    .btn-analyze:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,105,0,0.3); }
+
+    .advice-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 20px 24px; box-shadow: var(--shadow-sm); }
+    .advice-card.high { border-left: 4px solid #ea4335; }
+    .advice-card.med { border-left: 4px solid var(--accent); }
+    .advice-card.low { border-left: 4px solid var(--green); }
+    .advice-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .advice-badge { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 10px; border-radius: 100px; }
+    .advice-badge.high { background: rgba(234,67,53,0.1); color: #ea4335; }
+    .advice-badge.med { background: var(--accent-soft); color: var(--accent); }
+    .advice-badge.low { background: rgba(52,168,83,0.1); color: #34a853; }
+    .advice-card h4 { font-size: 0.9rem; color: var(--fg-primary); margin: 0; border: none; padding: 0; }
+    .advice-card p { font-size: 0.82rem; color: var(--fg-secondary); margin: 0; line-height: 1.5; }
+
+    .advice-empty { text-align: center; padding: 40px 20px; color: var(--fg-muted); font-size: 0.9rem; }
+    .advice-empty p { margin: 0; }
+
+    @media (max-width: 900px) {
+      .advisor-layout { flex-direction: column; padding: 0 16px 40px; }
+      .advisor-right { width: 100%; }
+      .advisor-right-inner { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand"><img src="assets/img/empire-earth-icon.png" class="nav-logo-img" alt="">EEpedia</a>
+    <a href="guides/index.html">Guias</a>
+    <a href="units/index.html">Unidades</a>
+    <a href="powers/index.html">Poderes</a>
+    <a href="glitches/index.html">Glitches</a>
+    <a href="civilizations.html">Civilizaciones</a>
+    <a href="advisor.html">Asesor</a>
+    <a href="calculator.html">Calculadora</a>
+  </nav>
+
+  <div class="container">
+    <div class="hero">
+      <img src="assets/img/empire-earth-icon.png" alt="EE" class="hero-logo">
+      <h1>Asesor de Partida</h1>
+      <p>Introduce tus recursos actuales y la epoca. El asesor analiza tu situacion y te recomienda la mejor direccion para avanzar.</p>
+    </div>
+  </div>
+
+  <div class="advisor-layout">
+    <div class="advisor-left" id="resultsPanel">
+      <div class="advice-empty"><p>Ajusta los recursos y pulsa <strong>Analizar</strong> para recibir recomendaciones.</p></div>
+    </div>
+
+    <div class="advisor-right">
+      <div class="advisor-right-inner">
+        <div class="res-card">
+          <h3>Recursos disponibles</h3>
+
+          <div class="res-row">
+            <img src="assets/img/food-icon.png" alt=""><span class="res-label">Comida</span>
+            <input type="range" class="res-slider" id="food" min="0" max="5000" value="500" step="50">
+            <span class="res-val" id="foodVal">500</span>
+            <span class="res-max" onclick="setMax('food')">MAX</span>
+          </div>
+
+          <div class="res-row">
+            <img src="assets/img/wood-icon.png" alt=""><span class="res-label">Madera</span>
+            <input type="range" class="res-slider" id="wood" min="0" max="5000" value="300" step="50">
+            <span class="res-val" id="woodVal">300</span>
+            <span class="res-max" onclick="setMax('wood')">MAX</span>
+          </div>
+
+          <div class="res-row">
+            <img src="assets/img/stone-icon.png" alt=""><span class="res-label">Piedra</span>
+            <input type="range" class="res-slider" id="stone" min="0" max="5000" value="100" step="50">
+            <span class="res-val" id="stoneVal">100</span>
+            <span class="res-max" onclick="setMax('stone')">MAX</span>
+          </div>
+
+          <div class="res-row">
+            <img src="assets/img/gold-icon.png" alt=""><span class="res-label">Oro</span>
+            <input type="range" class="res-slider" id="gold" min="0" max="5000" value="200" step="50">
+            <span class="res-val" id="goldVal">200</span>
+            <span class="res-max" onclick="setMax('gold')">MAX</span>
+          </div>
+
+          <div class="res-row">
+            <img src="assets/img/iron-icon.png" alt=""><span class="res-label">Hierro</span>
+            <input type="range" class="res-slider" id="iron" min="0" max="5000" value="0" step="50">
+            <span class="res-val" id="ironVal">0</span>
+            <span class="res-max" onclick="setMax('iron')">MAX</span>
+          </div>
+
+          <label style="display:block;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--fg-muted);margin:20px 0 6px">Epoca actual</label>
+          <select class="epoch-select" id="epoch">
+            <option value="0">Prehistoria</option><option value="1">Piedra</option><option value="2">Cobre</option>
+            <option value="3">Bronce</option><option value="4">Oscura</option><option value="5">Media</option>
+            <option value="6">Renacimiento</option><option value="7">Imperial</option>
+            <option value="8">Industrial</option><option value="9">WWI</option><option value="10">WWII</option>
+            <option value="11">Moderna</option><option value="12">Digital</option><option value="13">Nano</option><option value="14">Espacio</option>
+          </select>
+
+          <button class="btn-analyze" onclick="analyze()">Analizar situacion</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>(c) EEpedia — Proyecto comunitario sin animo de lucro.</p>
+  </footer>
+
+  <script>
+    const sliders = ['food','wood','stone','gold','iron'];
+    sliders.forEach(function(id) {
+      var el = document.getElementById(id);
+      el.addEventListener('input', function() {
+        document.getElementById(id + 'Val').textContent = el.value;
+      });
+    });
+
+    function setMax(id) {
+      document.getElementById(id).value = 5000;
+      document.getElementById(id + 'Val').textContent = '5000';
+    }
+
+    function analyze() {
+      var f = parseInt(document.getElementById('food').value);
+      var w = parseInt(document.getElementById('wood').value);
+      var s = parseInt(document.getElementById('stone').value);
+      var g = parseInt(document.getElementById('gold').value);
+      var i = parseInt(document.getElementById('iron').value);
+      var epoch = parseInt(document.getElementById('epoch').value);
+      var advice = [];
+
+      var total = f + w + s + g + i;
+
+      // CRITICO: sin comida
+      if (f < 100 && total < 300) {
+        advice.push({pri:'high',title:'Produccion de ciudadanos detenida',text:'Tienes menos de 100 de comida. Asigna TODOS los ciudadanos a comida (huertos, caza o pesca). Sin comida no puedes crear mas ciudadanos y pierdes la partida.'});
+      }
+
+      // CRITICO: muchos recursos ociosos
+      if (total > 2000 && f < 300) {
+        advice.push({pri:'high',title:'Exceso de recursos sin comida',text:'Tienes muchos recursos acumulados pero poca comida. Convierte madera en granjas o barcos de pesca. La comida es el motor de tu economia.'});
+      }
+
+      // ALTA: falta edificio militar
+      if (w > 150 && epoch <= 5) {
+        advice.push({pri:'med',title:'Construye tu primer edificio militar',text:'Tienes madera suficiente. Construye un Barracon (unidades cuerpo a cuerpo) o una Arqueria (arqueros). Hazlo antes del minuto 5 para tener defensa temprana.'});
+      }
+      if ((g > 200 || i > 200) && epoch >= 9) {
+        advice.push({pri:'med',title:'Fabrica militar necessaria',text:'Construye una Fabrica de Tanques o un Aeropuerto. En epocas modernas necesitas blindados y apoyo aereo.'});
+      }
+
+      // ALTA: avanzar de epoca
+      var advCost = getAdvanceCost(epoch);
+      if (advCost && f >= advCost.f * 1.5 && g >= advCost.g * 1.5) {
+        advice.push({pri:'med',title:'Puedes avanzar de epoca',text:'Tienes recursos suficientes para avanzar a la siguiente epoca (' + advCost.f + ' comida, ' + advCost.g + ' oro). Guarda 1.5x por seguridad. Avanza tras repeler un ataque, nunca durante un asedio.'});
+      }
+
+      // MEDIA: produccion de ciudadanos
+      if (f >= 200 && total < 800) {
+        advice.push({pri:'med',title:'Acelera la produccion de ciudadanos',text:'Manten produccion constante de ciudadanos. Pobla asentamientos cerca de minas de oro o hierro para duplicar la recoleccion con un Capitolio lleno.'});
+      }
+
+      // MEDIA: expansion
+      if (w > 300 && f > 250) {
+        advice.push({pri:'low',title:'Expande tu territorio',text:'Construye un asentamiento junto a una mina de oro o hierro. Pueblalo a Centro Urbano (5 ciudadanos). Si el mapa es grande, considera una segunda base.'});
+      }
+
+      // ESPECIFICA: ratio oro vs hierro
+      if (epoch >= 9 && i > g * 2 && i > 300) {
+        advice.push({pri:'low',title:'Prioriza tanques e infanteria de hierro',text:'Tienes mucho hierro. Produce Tanques (AP o HE), Marines y Doughboys. El hierro es el recurso dominante en epocas modernas.'});
+      }
+      if (epoch >= 9 && g > i * 2 && g > 300) {
+        advice.push({pri:'low',title:'Prioriza aviacion y armas especiales',text:'Tienes mucho oro. Produce Cazas, Bombarderos y Ametralladoras. Tambien es buen momento para Sacerdotes o Profetas.'});
+      }
+
+      // ESPECIFICA: epocas antiguas
+      if (epoch <= 2 && w > 200 && f > 150) {
+        advice.push({pri:'low',title:'Invierte en arqueros o lanceros',text:'En epocas tempranas, los arqueros (madera+oro) y lanceros (comida+madera) son la base del ejercito. Construye una Arqueria.'});
+      }
+      if (epoch >= 3 && epoch <= 5 && i > 150 && f > 200) {
+        advice.push({pri:'low',title:'Caballeria y espadas',text:'Dispones de hierro y comida. Produce Espadas Cortas en el Barracon y Caballeria en el Establo. La caballeria cuesta comida+oro, ideal para raids rapidos.'});
+      }
+
+      // ESPECIFICA: madera sobrante
+      if (w > 600 && f < 400) {
+        advice.push({pri:'low',title:'Convierte madera en comida',text:'Tienes mucha madera acumulada. Construye Graneros con campos de cultivo. 8 ciudadanos por granero duplican la produccion de comida.'});
+      }
+
+      // ESPECIFICA: defensa
+      if (s > 300 && w > 200) {
+        advice.push({pri:'low',title:'Refuerza tus defensas',text:'Tienes piedra y madera. Construye torres en triangulo con solapamiento de rangos. Anade muros para canalizar al enemigo. Coloca templos cerca para evitar calamidades.'});
+      }
+
+      // ESPECIFICA: cybers (Digital+)
+      if (epoch >= 12 && f > 400 && (g > 400 || i > 400)) {
+        advice.push({pri:'low',title:'Produccion de Cybers',text:'En la era Digital y Nano, los Cybers dominan el campo de batalla. Ares, Pandora y Minotauro son excelentes para empezar. Hyperion y Zeus para combate avanzado.'});
+      }
+
+      // DEFAULT: todo bien
+      if (advice.length === 0) {
+        advice.push({pri:'low',title:'Economia equilibrada',text:'Tu situacion parece estable. Sigue produciendo ciudadanos y unidades militar. Considera expandirte a nuevas minas o preparar un ataque coordinado.'});
+      }
+
+      renderAdvice(advice);
+    }
+
+    function getAdvanceCost(epoch) {
+      var costs = [
+        {f:170,g:0}, {f:250,g:100}, {f:400,g:200}, {f:750,g:350},
+        {f:1200,g:600}, {f:2000,g:1000}, {f:3000,g:1600}, {f:4500,g:2400},
+        {f:6000,g:3200}, {f:8000,g:4000}, {f:10000,g:5000}, {f:12000,g:6000},
+        {f:14000,g:7000}, {f:16000,g:8000}
+      ];
+      return costs[epoch] || null;
+    }
+
+    function renderAdvice(advice) {
+      var panel = document.getElementById('resultsPanel');
+      if (advice.length === 0) {
+        panel.innerHTML = '<div class="advice-empty"><p>Sin recomendaciones. Ajusta los recursos.</p></div>';
+        return;
+      }
+      var html = '';
+      advice.forEach(function(a) {
+        html += '<div class="advice-card ' + a.pri + '">' +
+          '<div class="advice-header"><span class="advice-badge ' + a.pri + '">' +
+          (a.pri === 'high' ? 'Critico' : a.pri === 'med' ? 'Recomendado' : 'Sugerencia') +
+          '</span><h4>' + a.title + '</h4></div>' +
+          '<p>' + a.text + '</p></div>';
+      });
+      panel.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

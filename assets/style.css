@@ -96,10 +96,14 @@ nav a:hover { color: var(--fg-primary); background: rgba(0,0,0,0.03); }
   flex-direction: column;
   align-items: center;
 }
-.hero h1 { font-size: 3.6rem; text-align: center; color: #e8eaed; }
-.hero p { color: #bcc0c8; font-size: 1.1rem; max-width: 640px; text-align: center; }
-.hero p:last-of-type { font-size: 0.82rem; color: #7a8290; margin-top: 4px; }
-.hero-logo { height: 80px; margin-bottom: 20px; filter: drop-shadow(0 0 16px rgba(212,168,75,0.35)); }
+.hero h1 { font-size: 3.6rem; text-align: center; color: var(--fg-primary); }
+.hero p { color: var(--fg-secondary); font-size: 1.1rem; max-width: 640px; text-align: center; }
+.hero p:last-of-type { font-size: 0.82rem; color: var(--fg-muted); margin-top: 4px; }
+.hero-logo { height: 80px; margin-bottom: 20px; }
+.hero-wrapper .hero h1 { color: #e8eaed; }
+.hero-wrapper .hero p { color: #bcc0c8; }
+.hero-wrapper .hero p:last-of-type { color: #7a8290; }
+.hero-wrapper .hero-logo { filter: drop-shadow(0 0 16px rgba(212,168,75,0.35)); }
 
 /* ===== Featured card (homepage) ===== */
 .featured-card {
@@ -431,7 +435,7 @@ table tr:hover td { background: rgba(0,0,0,0.015); }
 .morale-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--gold)); }
 
 /* ===== Settlement diagram ===== */
-.settlement-diagram { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+.settlement-diagram { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin: 16px 0; }
 .settlement-box {
   background: var(--bg-card); border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md); padding: 24px; text-align: center;
